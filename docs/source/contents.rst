@@ -1,9 +1,4 @@
-.. AIForcesAPI documentation master file, created by
-   sphinx-quickstart on Mon Jan 27 22:31:01 2020.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
-Welcome to AIForcesAPI's documentation!
+AIForces API documentation.
 =======================================
 
 .. toctree::
@@ -11,6 +6,13 @@ Welcome to AIForcesAPI's documentation!
    :caption: Contents:
 
    introduction
+   return_objects
+   authentication
+   user_info
+   user_settings
    challenge
    invocation
+   contest
+   submission
+   problem
 
