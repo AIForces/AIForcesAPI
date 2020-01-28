@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "aiforces"
+name = "aiforces-api"
 version = "0.1.0"
 description = ""
 authors = ["Aleksandr Alekseev <https://github.com/aalekseevx>", "Danil Doroshin <ddddanil5555@gmail.com>", "Nikolay Rulev <https://github.com/AbsoluteNikola>"]
