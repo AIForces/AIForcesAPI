@@ -10,11 +10,7 @@ Welcome to AIForcesAPI's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   introduction
+   challenge
+   invocation
 
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
