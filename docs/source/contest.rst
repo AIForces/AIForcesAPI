@@ -4,106 +4,89 @@ Contest
 Contest API provides you with all the info availiable about the past, current and upcoming contests. It can be used to submit solutions and manage upcoming events.
 
 [GET] /contests
-^^^^^^^^^^^^^^^
+	- Parameters 
+	
+	.. csv-table::
+		:header: "Parameter", "Format", "Default", "Description"
 
-Return a list of contests available.
+		show_hidden, boolean, false, "If set to true by non-admin, error is raised. Admins can view all the contests."
+		fields, , ,
+		limit, , ,
+		offset, , ,
+		sort, , ,
 
-- Parameters
+	- Example
 
-.. csv-table::
-	:header: "Parameter", "Format", "Default", "Description"
-
-	show_hidden, boolean, false, "If set to true by non-admin, error is raised. Admins can view all the contests."
-	fields, , ,
-	limit, , ,
-	offset, , ,
-	sort, , ,
-
-- Example
-
-- Response
+	- Response
 
 [GET] /contests/:contest/tournaments
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	- Parameters 
 
-Parameters
+	.. csv-table::
+		:header: "Parameter", "Format", "Default", "Description"
 
-.. csv-table::
-	:header: "Parameter", "Format", "Default", "Description"
+		, , ,
 
-	, , ,
+	- Example
 
-Example
-
-Response
+	- Response
 
 [GET] /contests/:contest/results
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	- Parameters 
 
-Parameters
+	.. csv-table::
+		:header: "Parameter", "Format", "Default", "Description"
 
-.. csv-table::
-	:header: "Parameter", "Format", "Default", "Description"
+		, , ,
 
-	, , ,
+	- Example
 
-Example
-
-Response
+	- Response
 
 [GET] /contests/:contest/participants
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	- Parameters 
 
-Parameters
+	.. csv-table::
+		:header: "Parameter", "Format", "Default", "Description"
 
-.. csv-table::
-	:header: "Parameter", "Format", "Default", "Description"
+		, , ,
 
-	, , ,
+	- Example
 
-Example
-
-Response
+	- Response
 
 [GET] /contests/:contest/authors
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	- Parameters 
 
-Parameters
+	.. csv-table::
+		:header: "Parameter", "Format", "Default", "Description"
 
-.. csv-table::
-	:header: "Parameter", "Format", "Default", "Description"
+		, , ,
 
-	, , ,
+	- Example
 
-Example
-
-Response
+	- Response
 
 [GET] /contests/:contest/managers
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	- Parameters 
 
-Parameters
+	.. csv-table::
+		:header: "Parameter", "Format", "Default", "Description"
 
-.. csv-table::
-	:header: "Parameter", "Format", "Default", "Description"
+		, , ,
 
-	, , ,
+	- Example
 
-Example
-
-Response
+	- Response
 
 [GET] /contests/:contest/sandbox
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	- Parameters 
 
-- Parameters
+	.. csv-table::
+		:header: "Parameter", "Format", "Default", "Description"
 
-.. csv-table::
-	:header: "Parameter", "Format", "Default", "Description"
+		, , ,
 
-	, , ,
+	- Example
 
-- Example
-
-- Response
-
+	- Response
