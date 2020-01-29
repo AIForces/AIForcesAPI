@@ -3,12 +3,12 @@ Contest
 
 Contest API provides you with all the info availiable about the past, current and upcoming contests. It can be used to submit solutions and manage upcoming events.
 
-/contests
+[GET] /contests
+^^^^^^^^^^^^^^^
 
 Return a list of contests available.
-Method: GET
 
-Parameters
+- Parameters
 
 .. csv-table::
 	:header: "Parameter", "Format", "Default", "Description"
@@ -19,29 +19,91 @@ Parameters
 	offset, , ,
 	sort, , ,
 
+- Example
 
-Example
+- Response
 
-Response
-
-/contests/:contest-short-name/tournaments
-
-Returns 
-Method: GET
+[GET] /contests/:contest/tournaments
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Parameters
 
+.. csv-table::
+	:header: "Parameter", "Format", "Default", "Description"
+
+	, , ,
+
 Example
 
 Response
 
-/contests/:contest-short-name/results
+[GET] /contests/:contest/results
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-/contests/:contest-short-name/participants
+Parameters
 
-/contests/:contest-short-name/authors
+.. csv-table::
+	:header: "Parameter", "Format", "Default", "Description"
 
-/contests/:contest-short-name/managers
+	, , ,
 
-/contests/:contest-short-name/sandbox
+Example
+
+Response
+
+[GET] /contests/:contest/participants
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Parameters
+
+.. csv-table::
+	:header: "Parameter", "Format", "Default", "Description"
+
+	, , ,
+
+Example
+
+Response
+
+[GET] /contests/:contest/authors
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Parameters
+
+.. csv-table::
+	:header: "Parameter", "Format", "Default", "Description"
+
+	, , ,
+
+Example
+
+Response
+
+[GET] /contests/:contest/managers
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Parameters
+
+.. csv-table::
+	:header: "Parameter", "Format", "Default", "Description"
+
+	, , ,
+
+Example
+
+Response
+
+[GET] /contests/:contest/sandbox
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Parameters
+
+.. csv-table::
+	:header: "Parameter", "Format", "Default", "Description"
+
+	, , ,
+
+- Example
+
+- Response
 
