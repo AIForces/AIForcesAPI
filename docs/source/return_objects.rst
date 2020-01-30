@@ -35,6 +35,8 @@ Represents general info about one tournament. (contest may include several inter
    tournament_type, string, One of the built-in tournament types. Check the corresponding documentation.
    status, string, "Describes status of the tournament: ""before"", ""in_progress"", ""pending_results"", ""finished""" 
    
+.. _user-label:
+
 User
 ^^^^
 .. table:: User object
@@ -58,12 +60,59 @@ User
 
 Rows marked with * are not sent by default, and instead should be requested by the caller.
 
+Examples
+""""""""
+Simple object:
+
+.. code:: json
+
+   {
+      "username": "coolguy",
+      "displayname": "The coolest guy ever 笑",
+      "role": "User",
+      "score": 1336,
+      "profile": {
+         "profile-picture": "https://ourhosting.lol/media/1234beef/coolguy.png"
+      }
+   }
+
+Complex object:
+
+.. code:: json
+
+   {
+      "username": "SuperBoi",
+      "displayname": "nеvеr gоnnа givе уоu uр",
+      "role": "User",
+      "score": [
+         [ "2018-11-13T20:20:39+00:00", 0 ],
+         [ "2018-12-21T12:46:34+00:00", 137 ],
+         [ "2019-01-07T18:59:19+00:00", 235 ],
+         [ "2019-01-24T23:02:40+00:00", 331 ]
+      ],
+      "profile": {
+         "age": 11,
+         "bio": "I love programming",
+         "city": "Dublin",
+         "country": "Ireland",
+         "email": "bestboi09@gmail.cm",
+         "gender": "Male",
+         "organisation": "Junior High",
+         "profile-picture": "https://ourhosting.lol/media/abcdead1/hot_girls.jpg"
+      },
+      "participating_contests": [ "entry", "easy", "tron1000" ],
+      "administrating_contests": [ "my_playground" ],
+      "friends": [ "PiccoloX" ]
+   }
+
 .. _score-label:
 
 Score
 ^^^^^
 When interpreted as an array, each item is itself an array of two elements:
-a datetime code and the score at that point. Example::
+a datetime code and the score at that point. Example:
+
+.. code:: json
 
    [
       [ "2018-11-13T20:20:39+00:00", 0 ],
