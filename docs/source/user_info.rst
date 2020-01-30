@@ -59,3 +59,27 @@ Contests
 
 Submissions
    Each submission is identified by a user, contest and a task. The user who uploaded the solution
+
+Friends
+   Self-explanatory. The user has to confirm the friend invite before the other person gets added to the friends list.
+
+Endpoints
+^^^^^^^^^
+As per Djoser, there are some basic endpoints exposed. By default, only `/users/me` returns data about a particular user. 
+
+GET /users/:username
+   Returns the public information about that user
+
+GET /users/me
+   Returns all information about the authenticated user.
+
+.. table:: Query variables
+
+   ======================= ==== =========================
+   Variable                Type Definition
+   ======================= ==== =========================
+   full_score              bool Return the score as a history array (See :ref:`score-label`)
+   participating_contests  bool Return the participating contests array
+   administrating_contests bool Return the administrating contests array
+   friends                 bool Return the friends array
+   ======================= ==== =========================
