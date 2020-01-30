@@ -34,3 +34,33 @@ Represents general info about one tournament. (contest may include several inter
    start_time, integer, Start of the tournament (UNIX format).
    tournament_type, string, One of the built-in tournament types. Check the corresponding documentation.
    status, string, "Describes status of the tournament: ""before"", ""in_progress"", ""pending_results"", ""finished""" 
+
+
+.. _challenge-label:
+
+Challenge
+^^^^^^^^^
+
+Represents info about one Challenge
+ 
+.. csv-table::
+   :header: "Field", "Format", "Description"
+   id, integer, Challenge id
+   opponents, [integer], array of opponents ids
+   inovocations, [integer], array of :ref:`_inovocation-label` 
+   contest_id, integer, Contest id
+   problem_id, integer, Problem id
+
+.. _inovocation-label:
+
+Inovocation
+^^^^^^^^^^^
+
+Represents info about one Inovocation
+
+.. csv-table::
+   :header: "Field", "Format", "Description"
+   id, integer, Inovocation id
+   status, string, "Testing status. Should be OK, NA (Not Available), FT, "
+   step, integer, current step
+   winner, integer, id of victorious user
