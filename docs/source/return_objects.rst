@@ -143,9 +143,10 @@ Represents one user's participation score in the given contest
     :header: "Field", "Format", "Description"
 
     id, integer, "Achievement ID"
-    rating_before, integer, "Rating before the contest"
-    rating_after, integer, "Rating after the contest"
-    problem_scores, key-value dict, "Score per problem"
+    contest, string, "Contest short name."
+    rating_before, integer, "Rating before the contest."
+    rating_after, integer, "Rating after the contest."
+    problem_scores, key-value dict, "Score per problem."
     total_score, integer, "Sum of scores."
     user, string, "Username."
     place, integer, "Place, that user takes."
@@ -158,6 +159,7 @@ Example
 
     {
         "id": 105,
+        "contest": "tron_contest"
         "rating_before": 1500,
         "rating_after": 1549,
         "problem_scores": [
