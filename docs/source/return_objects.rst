@@ -35,7 +35,7 @@ Example
             "duration": 86400,
             "status": "finished",
             "has_sandbox": true,
-            "frozen_time": 82800
+            "frozen_after": 82800
         }
 
 Tournament
