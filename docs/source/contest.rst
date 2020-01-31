@@ -6,20 +6,19 @@ Contest API provides you with all the info availiable about the past, current an
 [GET] /contests
 	Retrieve general information of the contests. 
 
-	- Returns list of ``Contest`` objects.
-	- Arguments 
+	Returns
+		list of ``Contest`` objects.
+	Arguments 
+		.. csv-table::
+			:header: "Argument", "Format", "Default", "Description"
 
-	.. csv-table::
-		:header: "Argument", "Format", "Default", "Description"
+			show_hidden, boolean, false, "If set to true by non-admin, Forbidden error is returned. Admins can view all the contests."
+			fields, list of strings, "All ``Contest`` object fields", "Fields, which will be retrieved. Must be a subset of ``Contest`` object fields"
+			limit, integer, 20, Maximum number of recources, which will be returned.
+			offset, integer, 0, Index of first resource, which should be returned (used for pagination).
+			sort, string, "-start_time", One of the ``Contest`` object fields, which should be used for sorting the items. Order is **ascending**, to reverse the order, use ``-`` at the begining of the string. 
 
-		show_hidden, boolean, false, "If set to true by non-admin, Forbidden error is returned. Admins can view all the contests."
-		fields, list of strings, "All ``Contest`` object fields", "Fields, which will be retrieved. Must be a subset of ``Contest`` object fields"
-		limit, integer, 20, Maximum number of recources, which will be returned.
-		offset, integer, 0, Index of first resource, which should be returned (used for pagination).
-		sort, string, "-start_time", One of the ``Contest`` object fields, which should be used for sorting the items. Order is **ascending**, to reverse the order, use ``-`` at the begining of the string. 
-
-	- Example
-
+	Example
 		Request
 			.. code-block:: bash
 
@@ -32,7 +31,7 @@ Contest API provides you with all the info availiable about the past, current an
 					-d limit=2 \
 					-d sort=-start_time \
 		Response
-			.. code-block:: python
+			.. code-block:: js
 
 				[
 					{
@@ -47,9 +46,49 @@ Contest API provides you with all the info availiable about the past, current an
 				]
 
 [POST] /contests
-	Creates new contest.
+	Creates new contest, managed by the current user.
 
-[GET] /contests/:contest/tournaments
+	- Returns error or new contest's id in the case of success.
+	- Arguments
+	
+	Send a Contest object with all the neccessary fields. You may add optional fields. Exclude ``id`` and ``status`` fields.
+	
+	- Example
+
+	Request
+		.. code-block:: bash
+
+			curl https://api.aiforces.com/v1/contests/ \
+				-X POST \
+				-H "Content-Type: application/json" \
+				-d '{ \
+				    "short_name": "tron_contest", \
+				    "name": "First awesome AIForces contest.", \
+				    "hidden": false, \
+				    "description": "Lorem ipsum dolor sit amet.", \
+				    "difficulty": 1, \
+				    "start_time": "2019-01-24T23:02:40+00:00", \
+				    "duration": 86400, \
+				    "has_sandbox": true, \
+				    "frozen_time": 82800 \
+				}'
+
+	Success Response
+		.. code-block:: js
+
+			{
+				"id": 257
+			}
+
+	Error Response
+		.. code-block:: js
+
+			{
+				"error": "AuthencticationRequired",
+				"description": "Please, login to perform this operation."
+			}			
+
+[GET] /contests/:contest
 	- Arguments 
 
 	.. csv-table::
@@ -61,7 +100,46 @@ Contest API provides you with all the info availiable about the past, current an
 
 	- Response
 
+[PUT] /contests/:contest
+	- Arguments 
+
+	.. csv-table::
+		:header: "Argument", "Format", "Default", "Description"
+
+		, , ,
+
+	- Example
+
+	- Response
+
+[PATCH] /contests/:contest
+	- Arguments 
+
+	.. csv-table::
+		:header: "Argument", "Format", "Default", "Description"
+
+		, , ,
+
+	- Example
+
+	- Response
+
+[DELETE] /contests/:contest
+	- Arguments 
+
+	.. csv-table::
+		:header: "Argument", "Format", "Default", "Description"
+
+		, , ,
+
+	- Example
+
+	- Response
+
+- Response
+
 [GET] /contests/:contest/results
+	Returns results table based on final tournaments.
 	- Arguments 
 
 	.. csv-table::
@@ -86,6 +164,30 @@ Contest API provides you with all the info availiable about the past, current an
 	- Response
 
 [GET] /contests/:contest/authors
+	- Arguments 
+
+	.. csv-table::
+		:header: "Argument", "Format", "Default", "Description"
+
+		, , ,
+
+	- Example
+
+	- Response
+
+[PUT] /contests/:contest/authors
+	- Arguments 
+
+	.. csv-table::
+		:header: "Argument", "Format", "Default", "Description"
+
+		, , ,
+
+	- Example
+
+	- Response
+
+[PATCH] /contests/:contest/authors
 	- Arguments 
 
 	.. csv-table::
