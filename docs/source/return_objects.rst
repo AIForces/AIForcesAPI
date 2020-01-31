@@ -12,6 +12,7 @@ Represents general info about one competition.
    short_name, string, Contest unique short name.
    name, string, Name of the contest. May be localized.
    hidden, boolean, "If true, contest is not visible for public." 
+   rated, boolean, "After rating contests, rating is recalculated."
    description, string, Description of the contest. May be localized.
    difficulty, integer from 1 to 5, Estimated difficulty. 5 is the most difficult.
    start_time, integer, Start of the contest (ISO 8601 format).
@@ -19,6 +20,9 @@ Represents general info about one competition.
    status, string, "Describes status of the contest: ""before"", ""in_progress"", ""pending_results"", ""finished"""
    has_sandbox, boolean, "If true, contest has a sandbox and corresponding API can be used."
    frozen_after, integer, "May be absent. If contest has sandbox, it will be turned off after number of seconds, set in this variable."
+   authors, (see example), "Authors of the contest"
+   managers, (see example), "Managers of the contest"
+   problems, (see example), "Problems, used in the contest."
 
 Example
    
@@ -29,13 +33,43 @@ Example
             "short_name": "tron_contest",
             "name": "First awesome AIForces contest.",
             "hidden": false,
+            "rated": true,
             "description": "Lorem ipsum dolor sit amet.",
             "difficulty": 1,
             "start_time": "2019-01-24T23:02:40+00:00",
             "duration": 86400,
             "status": "finished",
             "has_sandbox": true,
-            "frozen_after": 82800
+            "frozen_after": 82800,
+            "authors": {
+                "testers": [
+                    "user_tester_1",
+                    "user_tester_2",
+                ],
+                "front-enders": [
+                    "front-end-god"
+                ],
+                "problemsetters": [
+                    "icpc-person"
+                ],
+                "coordinators": [
+                    "300iq"
+                ]
+            },
+            "managers": {
+                "read": [
+                    "tester_meshanya",
+                    "tester_sanya",
+                ],
+                "write": [
+                    "problemwriter_anton"
+                ]
+            },
+            "problems": {
+                "A": "tron",
+                "B": "chess",
+                "C": "go"
+            }
         }
 
 Tournament
@@ -82,6 +116,7 @@ Represnts one code submission.
    name, string, "Short name (may be given by the user to identify submissions in a quick way)"
    source, string, "Source code of the submission."
    lang, string, "Identifier of the programming language. Read the corresponding documentation."
+   submitted_at, string, "Submission time. (ISO 8601 format)"
 
 Example
    
@@ -94,5 +129,45 @@ Example
       "problem": "tron",
       "name": "tron_megasovler2000",
       "source": "print(\"Hello world!\")",
-      "lang": "pypy3"
+      "lang": "pypy3",
+      "submitted_at" = "2019-01-24T23:02:40+00:00",
    }
+
+
+Achievement
+^^^^^^^^^^^
+
+Represents one user's participation score in the given contest
+
+.. csv-table::
+    :header: "Field", "Format", "Description"
+
+    id, integer, "Achievement ID"
+    rating_before, integer, "Rating before the contest"
+    rating_after, integer, "Rating after the contest"
+    problem_scores, key-value dict, "Score per problem"
+    total_score, integer, "Sum of scores."
+    user, string, "Username."
+    place, integer, "Place, that user takes."
+    participants_number, integer, "Contest's participants number"
+    achieved_at, string, "Achievement time. (ISO 8601 format)"
+
+Example
+
+.. code-block:: js
+
+    {
+        "id": 105,
+        "rating_before": 1500,
+        "rating_after": 1549,
+        "problem_scores": [
+            "A": 700,
+            "B": 1000,
+            "C": 800
+        ],
+        "total_score": 2500,
+        "user": "meshanya",
+        "place": 3,
+        "participants_number": 1000,
+        "achieved_at" = "2019-01-24T23:02:40+00:00",   
+    }
