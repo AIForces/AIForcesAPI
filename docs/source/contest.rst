@@ -14,6 +14,7 @@ Contest API provides you with all the info availiable about the past, current an
 
             show_hidden, boolean, false, "If set to true by non-admin, Forbidden error is returned. Admins can view all the contests."
             fields, "list of strings", "All ``Contest`` object fields", "Fields, which will be retrieved. Must be a subset of ``Contest`` object fields"
+            filter, "list of strings", "Filtering is not used", "If present, only contests with given identifiers will be in the response."
             limit, integer, 20, "Maximum number of recources, which will be returned."
             offset, integer, 0, "Index of first resource, which should be returned (used for pagination)."
             sort, string, "-start_time", "One of the ``Contest`` object fields, which should be used for sorting the items. Order is **ascending**, to reverse the order, use ``-`` at the begining of the string." 
@@ -187,23 +188,45 @@ Contest API provides you with all the info availiable about the past, current an
     .. csv-table::
         :header: "Argument", "Format", "Default", "Description"
 
-        , , ,
+        fields, "list of strings", "All ``Achievement`` object fields", "Fields, which will be retrieved. Must be a subset of ``Achievement`` object fields"
+        filter, "list of strings", "Filtering is not used", "If present, only contests with given identifiers will be in the response."
+        filter_friends, "boolean", "Exclude users, who are not your friends."
+        limit, integer, 20, "Maximum number of resources, which will be returned."
+        offset, integer, 0, "Index of first resource, which should be returned (used for pagination)."
+        sort, string, "place", "One of the ``Achievement`` object fields, which should be used for sorting the items. Order is **ascending**, to reverse the order, use ``-`` at the begining of the string." 
 
     Example
         Request
+            .. code-block:: bash
+
+                curl https://api.aiforces.com/v1/contests/:contest/results \
+                    -X GET \
+                    -G \
+                    -d fields=user \
+                    -d fields=place \
+                    -d fields=rating_before \
+                    -d fields=rating_after \
+                    -d limit=2 \
         Response
+            .. code-block:: js
+
+                [
+                    {
+                        "user": "lifetime_winner",
+                        "place": 1
+                        "rating_before": 1500,
+                        "rating_after": 1543,
+                        "achieved_at" = "2019-01-24T23:02:40+00:00",
+                    },
+
+                    {
+                        "user": "lifetime_loser",
+                        "place": 2,
+                        "rating_before": 1500,
+                        "rating_after": 1478,
+                        "achieved_at" = "2019-03-24T23:02:40+00:00",
+                    }
+                ]
 
 [GET] /contests/:contest/participants
     Works same way as ``[GET] /users``, but returns users registered for the contest.
-
-[GET] /contests/:contest/sandbox
-    Arguments 
-
-    .. csv-table::
-        :header: "Argument", "Format", "Default", "Description"
-
-        , , ,
-
-    Example
-
-    Response
