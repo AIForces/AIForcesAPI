@@ -52,7 +52,7 @@ score
    parts required to compute it, and score history.
 
 `settings` and `privacy-settings`
-   *See :ref:`user-settings-label`*
+   See :ref:`user-settings-label`
 
 Relations
 ^^^^^^^^^
