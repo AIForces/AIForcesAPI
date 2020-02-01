@@ -91,16 +91,16 @@ Represents general info about one tournament. (contest may include several inter
 Example
 """""""
 
-.. code-block:: json
+.. code:: json
 
-    {
-        "id": 123,
-        "name": "first blood",
-        "hidden": false,
-        "start_time" = "2019-01-24T23:02:40+00:00",
-        "tournament_type": "swiss",
-        "status": "in_progress"
-    }
+   {
+      "id": 123,
+      "name": "first blood",
+      "hidden": false,
+      "start_time": "2019-01-24T23:02:40+00:00",
+      "tournament_type": "swiss",
+      "status": "in_progress"
+   }
 
 .. _user-label:
 
@@ -115,7 +115,7 @@ User
    displayname             string             Display name
    role                    string             User role
    score                   integer/array*     | *integer* - a single score
-                                              | *array* - score history array (See :ref:`score-label`)
+                                              | *array* - score history array (See :ref:`achievement-label`)
    profile                 object             | Metadata fields.
                                               | Their quantity depends on the privacy settings of the user.
                                               | This field also includes the email and the realname
@@ -152,10 +152,37 @@ Complex object:
       "displayname": "nеvеr gоnnа givе уоu uр",
       "role": "User",
       "score": [
-         [ "2018-11-13T20:20:39+00:00", 0 ],
-         [ "2018-12-21T12:46:34+00:00", 137 ],
-         [ "2019-01-07T18:59:19+00:00", 235 ],
-         [ "2019-01-24T23:02:40+00:00", 331 ]
+         {
+            "id": 105,
+            "contest": "tron_contest",
+            "rating_before": 0,
+            "rating_after": 10,
+            "problem_scores": {
+               "A": 200
+            },
+            "total_score": 200,
+            "user": "superBoi",
+            "place": 43,
+            "participants_number": 60,
+            "achieved_at": "2018-11-13T20:20:39+00:00"
+         },
+         {
+            "id": 105,
+            "contest": "tron_contest2",
+            "rating_before": 10,
+            "rating_after": 12,
+            "problem_scores": {
+               "A": 100,
+               "B": 0,
+               "C": 0,
+               "D": 0
+            },
+            "total_score": 100,
+            "user": "superBoi",
+            "place": 193,
+            "participants_number": 200,
+            "achieved_at": "2018-12-21T12:46:34+00:00"
+         }
       ],
       "profile": {
          "age": 11,
@@ -170,14 +197,6 @@ Complex object:
       "participating_contests": [ "entry", "easy", "tron1000" ],
       "administrating_contests": [ "my_playground" ],
       "friends": [ "PiccoloX" ]
-      "id": 278,
-      "user": "patrick",
-      "contest": "tron_test_contest",
-      "problem": "tron",
-      "name": "tron_megasovler2000",
-      "source_file": "submission_278.py",
-      "lang": "pypy3",
-      "submitted_at" = "2019-01-24T23:02:40+00:00",
    }
 
 
@@ -211,8 +230,10 @@ Example
         "name": "tron_megasovler2000",
         "source_file": "submission_278.py",
         "lang": "pypy3",
-        "submitted_at" = "2019-01-24T23:02:40+00:00",
+        "submitted_at": "2019-01-24T23:02:40+00:00"
     }
+
+.. _achievement-label:
 
 Achievement
 ^^^^^^^^^^^
@@ -240,17 +261,17 @@ Example
 
     {
         "id": 105,
-        "contest": "tron_contest"
+        "contest": "tron_contest",
         "rating_before": 1500,
         "rating_after": 1549,
-        "problem_scores": [
+        "problem_scores": {
             "A": 700,
             "B": 1000,
             "C": 800
-        ],
+        },
         "total_score": 2500,
         "user": "meshanya",
         "place": 3,
         "participants_number": 1000,
-        "achieved_at" = "2019-01-24T23:02:40+00:00",
+        "achieved_at": "2019-01-24T23:02:40+00:00"
     }
