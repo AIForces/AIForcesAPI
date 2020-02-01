@@ -114,7 +114,7 @@ Represnts one code submission.
    contest, string, "Contest the submission is attached to."
    problem, string, "Problem, which solution is presented."
    name, string, "Short name (may be given by the user to identify submissions in a quick way)"
-   source, string, "Source code of the submission."
+   source_file, string, "Name of the source file. File can be downloaded at /media/:username/:source_file"
    lang, string, "Identifier of the programming language. Read the corresponding documentation."
    submitted_at, string, "Submission time. (ISO 8601 format)"
 
@@ -128,7 +128,7 @@ Example
       "contest": "tron_test_contest",
       "problem": "tron",
       "name": "tron_megasovler2000",
-      "source": "print(\"Hello world!\")",
+      "source_file": "submission_278.py",
       "lang": "pypy3",
       "submitted_at" = "2019-01-24T23:02:40+00:00",
    }
