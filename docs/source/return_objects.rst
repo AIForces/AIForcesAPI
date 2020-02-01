@@ -161,7 +161,7 @@ Complex object:
                "A": 200
             },
             "total_score": 200,
-            "user": "superBoi",
+            "user": "SuperBoi",
             "place": 43,
             "participants_number": 60,
             "achieved_at": "2018-11-13T20:20:39+00:00"
@@ -178,7 +178,7 @@ Complex object:
                "D": 0
             },
             "total_score": 100,
-            "user": "superBoi",
+            "user": "SuperBoi",
             "place": 193,
             "participants_number": 200,
             "achieved_at": "2018-12-21T12:46:34+00:00"
@@ -227,7 +227,7 @@ Example
         "user": "patrick",
         "contest": "tron_test_contest",
         "problem": "tron",
-        "name": "tron_megasovler2000",
+        "name": "tron_megasolver2000",
         "source_file": "submission_278.py",
         "lang": "pypy3",
         "submitted_at": "2019-01-24T23:02:40+00:00"
