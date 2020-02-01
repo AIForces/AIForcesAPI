@@ -221,17 +221,20 @@ Submission
 
 Represnts one code submission.
 
-.. csv-table::
-   :header: "Field", "Format", "Description"
+.. table::
 
-   id, integer, "Submission ID"
-   user, string, "Username of the person, who made the submission"
-   contest, string, "Contest the submission is attached to."
-   problem, string, "Problem, which solution is presented."
-   name, string, "Short name (may be given by the user to identify submissions in a quick way)"
-   source_file, string, "Name of the source file. File can be downloaded at /media/:username/:source_file"
-   lang, string, "Identifier of the programming language. Read the corresponding documentation."
-   submitted_at, string, "Submission time. (ISO 8601 format)"
+   ============= ======== ======================================================
+   Field         Format   Description
+   ============= ======== ======================================================
+   id            integer  Submission ID
+   user          string   Username of the person, who made the submission
+   contest       string   Contest the submission is attached to
+   problem       string   Problem, which solution is presented
+   name          string   Short name (may be given by the user to identify submissions in a quick way)
+   source_file   string   Name of the source file. File can be downloaded at ``/media/:username/:source_file``
+   lang          string   Identifier of the programming language. Read the corresponding documentation
+   submitted_at  string   Submission time (ISO 8601 format)
+   ============= ======== ======================================================
 
 Example
 """""""
