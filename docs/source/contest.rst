@@ -190,7 +190,7 @@ Contest API provides you with all the info availiable about the past, current an
 
         fields, "list of strings", "All ``Achievement`` object fields", "Fields, which will be retrieved. Must be a subset of ``Achievement`` object fields"
         filter, "list of strings", "Filtering is not used", "If present, only contests with given identifiers will be in the response."
-        filter_friends, "boolean", "Exclude users, who are not your friends."
+        filter_friends, "boolean", false, "Exclude users, who are not your friends."
         limit, integer, 20, "Maximum number of resources, which will be returned."
         offset, integer, 0, "Index of first resource, which should be returned (used for pagination)."
         sort, string, "place", "One of the ``Achievement`` object fields, which should be used for sorting the items. Order is **ascending**, to reverse the order, use ``-`` at the begining of the string." 
