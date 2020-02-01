@@ -111,7 +111,7 @@ Represents general info about one tournament.
 Example
 """""""
 
-.. code:: json
+.. code-block:: json
 
    {
       "id": 123,
