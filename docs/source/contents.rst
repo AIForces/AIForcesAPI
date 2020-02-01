@@ -13,6 +13,7 @@ AIForces API documentation.
    challenge
    invocation
    contest
+   sandbox
    tournament
    submission
    problem
