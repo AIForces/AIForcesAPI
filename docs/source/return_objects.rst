@@ -21,10 +21,10 @@ Represents general info about one competition.
    duration      integer               Duration of contest in seconds
    status        string                Describes status of the contest
 
-                                        - before
-                                        - in_progress
-                                        - pending_results
-                                        - finished
+                                       - before
+                                       - in_progress
+                                       - pending_results
+                                       - finished
    has_sandbox   boolean               If true, contest has a sandbox and corresponding API can be used
    frozen_after  integer               May be absent. If contest has sandbox, it will be turned off after number of seconds, set in this variable
    authors       (see example)         Authors of the contest
@@ -35,51 +35,51 @@ Represents general info about one competition.
 Example
 """""""
 
-    .. code-block:: json
+.. code-block:: json
 
-        {
-            "id": 105,
-            "short_name": "tron_contest",
-            "name": "First awesome AIForces contest.",
-            "hidden": false,
-            "rated": true,
-            "description": "Lorem ipsum dolor sit amet.",
-            "difficulty": 1,
-            "start_time": "2019-01-24T23:02:40+00:00",
-            "duration": 86400,
-            "status": "finished",
-            "has_sandbox": true,
-            "frozen_after": 82800,
-            "authors": {
-                "testers": [
-                    "user_tester_1",
-                    "user_tester_2",
-                ],
-                "front-enders": [
-                    "front-end-god"
-                ],
-                "problemsetters": [
-                    "icpc-person"
-                ],
-                "coordinators": [
-                    "300iq"
-                ]
-            },
-            "managers": {
-                "read": [
-                    "tester_meshanya",
-                    "tester_sanya",
-                ],
-                "write": [
-                    "problemwriter_anton"
-                ]
-            },
-            "problems": {
-                "A": "tron",
-                "B": "chess",
-                "C": "go"
-            }
-        }
+   {
+      "id": 105,
+      "short_name": "tron_contest",
+      "name": "First awesome AIForces contest.",
+      "hidden": false,
+      "rated": true,
+      "description": "Lorem ipsum dolor sit amet.",
+      "difficulty": 1,
+      "start_time": "2019-01-24T23:02:40+00:00",
+      "duration": 86400,
+      "status": "finished",
+      "has_sandbox": true,
+      "frozen_after": 82800,
+      "authors": {
+         "testers": [
+            "user_tester_1",
+            "user_tester_2",
+         ],
+         "front-enders": [
+            "front-end-god"
+         ],
+         "problemsetters": [
+            "icpc-person"
+         ],
+         "coordinators": [
+            "300iq"
+         ]
+      },
+      "managers": {
+         "read": [
+            "tester_meshanya",
+            "tester_sanya",
+         ],
+         "write": [
+            "problemwriter_anton"
+         ]
+      },
+      "problems": {
+         "A": "tron",
+         "B": "chess",
+         "C": "go"
+      }
+   }
 
 Tournament
 ^^^^^^^^^^
@@ -238,16 +238,16 @@ Example
 
 .. code-block:: json
 
-    {
-        "id": 278,
-        "user": "patrick",
-        "contest": "tron_test_contest",
-        "problem": "tron",
-        "name": "tron_megasolver2000",
-        "source_file": "submission_278.py",
-        "lang": "pypy3",
-        "submitted_at": "2019-01-24T23:02:40+00:00"
-    }
+   {
+      "id": 278,
+      "user": "patrick",
+      "contest": "tron_test_contest",
+      "problem": "tron",
+      "name": "tron_megasolver2000",
+      "source_file": "submission_278.py",
+      "lang": "pypy3",
+      "submitted_at": "2019-01-24T23:02:40+00:00"
+   }
 
 .. _achievement-label:
 
@@ -256,38 +256,41 @@ Achievement
 
 Represents one user's participation score in the given contest
 
-.. csv-table::
-    :header: "Field", "Format", "Description"
+.. table::
 
-    id, integer, "Achievement ID"
-    contest, string, "Contest short name."
-    rating_before, integer, "Rating before the contest."
-    rating_after, integer, "Rating after the contest."
-    problem_scores, key-value dict, "Score per problem."
-    total_score, integer, "Sum of scores."
-    user, string, "Username."
-    place, integer, "Place, that user takes."
-    participants_number, integer, "Contest's participants number"
-    achieved_at, string, "Achievement time. (ISO 8601 format)"
+   ==================== ============== =========================================
+   Field                Format         Description
+   ==================== ============== =========================================
+   id                   integer        Achievement ID
+   contest              string         Contest short name
+   rating_before        integer        Rating before the contest
+   rating_after         integer        Rating after the contest
+   problem_scores       object (dict)  Score per problem
+   total_score          integer        Sum of scores
+   user                 string         Username
+   place                integer        Place, that user takes
+   participants_number  integer        Contest's participants number
+   achieved_at          string         Achievement time (ISO 8601 format)
+   ==================== ============== =========================================
 
 Example
 """""""
 
 .. code-block:: json
 
-    {
-        "id": 105,
-        "contest": "tron_contest",
-        "rating_before": 1500,
-        "rating_after": 1549,
-        "problem_scores": {
-            "A": 700,
-            "B": 1000,
-            "C": 800
-        },
-        "total_score": 2500,
-        "user": "meshanya",
-        "place": 3,
-        "participants_number": 1000,
-        "achieved_at": "2019-01-24T23:02:40+00:00"
-    }
+   {
+      "id": 105,
+      "contest": "tron_contest",
+      "rating_before": 1500,
+      "rating_after": 1549,
+      "problem_scores": {
+         "A": 700,
+         "B": 1000,
+         "C": 800
+      },
+      "total_score": 2500,
+      "user": "meshanya",
+      "place": 3,
+      "participants_number": 1000,
+      "achieved_at": "2019-01-24T23:02:40+00:00"
+   }
