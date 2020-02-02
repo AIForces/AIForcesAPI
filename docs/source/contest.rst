@@ -1,9 +1,13 @@
 Contest
--------
+*******
 
 Contest API provides you with all the info availiable about the past, current and upcoming contests. It can be used to submit solutions and manage upcoming events.
 
+Endpoints
+=========
+
 [GET] /contests
+---------------
     Retrieve general information of the contests. 
 
     Returns
@@ -48,6 +52,7 @@ Contest API provides you with all the info availiable about the past, current an
                 ]
 
 [GET] /contests/:contest-short-name
+-----------------------------------
     Retrieve general information about given contest.
 
     Returns
@@ -100,6 +105,7 @@ Contest API provides you with all the info availiable about the past, current an
                 }
 
 [PUT] /contests/:contest-short-name
+-----------------------------------
     Creates new contest, managed by the current user.
     If such contest already exists and managed by the current user, replaces it with the new one.
 
@@ -134,6 +140,7 @@ Contest API provides you with all the info availiable about the past, current an
             ``200 (OK)``
 
 [PATCH] /contests/:contest-short-name
+-------------------------------------
     Change general contest settings.
 
     Returns
@@ -158,6 +165,7 @@ Contest API provides you with all the info availiable about the past, current an
             ``200 OK``
 
 [DELETE] /contests/:contest-short-name
+--------------------------------------
     Deletes the contest, which must be managed by the current user.
 
     Returns
@@ -176,6 +184,7 @@ Contest API provides you with all the info availiable about the past, current an
 
 
 [GET] /contests/:contest/results
+--------------------------------
     Retrieve results table based on the final tournaments.
 
     Return
@@ -234,4 +243,5 @@ Contest API provides you with all the info availiable about the past, current an
                 ]
 
 [GET] /contests/:contest/participants
+-------------------------------------
     Works same way as ``[GET] /users``, but returns users registered for the contest.

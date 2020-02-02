@@ -1,73 +1,128 @@
 Submission
-----------
+**********
+
+Endpoints
+=========
 
 [GET] /contests/:contest/submissions
-	- Arguments 
+------------------------------------
+	Returns
+		``200 (OK)``
 
-	.. csv-table::
-		:header: "Argument", "Format", "Default", "Description"
+	Arguments
+		.. table::
 
-		, , ,
+		    ============= ================ ======================= ==============================
+		    Argument      Format           Default                 Description
+                
+		    ============= ================ ======================= ==============================
+	
+	Example
+		.. code-block:: bash
 
-	- Example
+			gg
+	Response
+		gg
 
-	- Response
 
 [POST] /contests/:contest/submissions
-	- Arguments 
+-------------------------------------
+	Returns
+		``200 (OK)``
 
-	.. csv-table::
-		:header: "Argument", "Format", "Default", "Description"
+	Arguments
+		.. table::
 
-		, , ,
+		    ============= ================ ======================= ==============================
+		    Argument      Format           Default                 Description
+                
+		    ============= ================ ======================= ==============================
 
-	- Example
+	Example
+		.. code-block:: bash
 
-	- Response
+			gg
+	Response
+		gg
+
 
 [GET] /contests/:contest/submissions/:submission
-	- Arguments 
+------------------------------------------------
+	Returns
+		``200 (OK)``
 
-	.. csv-table::
-		:header: "Argument", "Format", "Default", "Description"
+	Arguments
+		.. table::
 
-		, , ,
+		    ============= ================ ======================= ==============================
+		    Argument      Format           Default                 Description
+                
+		    ============= ================ ======================= ==============================
 
-	- Example
+	Example
+		.. code-block:: bash
 
-	- Response
+			gg
+	Response
+		gg
+
 
 [PUT] /contests/:contest/submissions/:submission
-	- Arguments 
+------------------------------------------------
+	Returns
+		``200 (OK)``
 
-	.. csv-table::
-		:header: "Argument", "Format", "Default", "Description"
+	Arguments
+		.. table::
 
-		, , ,
+		    ============= ================ ======================= ==============================
+		    Argument      Format           Default                 Description
+                
+		    ============= ================ ======================= ==============================
 
-	- Example
+	Example
+		.. code-block:: bash
 
-	- Response
+			gg
+	Response
+		gg
+
 
 [PATCH] /contests/:contest/submissions/:submission
-	- Arguments 
+--------------------------------------------------
+	Returns
+		``200 (OK)``
 
-	.. csv-table::
-		:header: "Argument", "Format", "Default", "Description"
+	Arguments
+		.. table::
 
-		, , ,
+		    ============= ================ ======================= ==============================
+		    Argument      Format           Default                 Description
+                
+		    ============= ================ ======================= ==============================
 
-	- Example
+	Example
+		.. code-block:: bash
 
-	- Response
+			gg
+	Response
+		gg
 
 [DELETE] /contests/:contest/submissions/:submission
+---------------------------------------------------
 	Deletes the submission, only for managers of the contest.
 
 	.. warning:: Doesn't remove any dependencies.
+
+	Returns
+		``200 (OK)``
+
+	Arguments
+		None
+
 	Example
 		.. code-block:: bash
 
 			curl https://api.aiforces.com/v1/contests/my-contest/submissions/121 -X DELETE
-
 	Response
+		gg

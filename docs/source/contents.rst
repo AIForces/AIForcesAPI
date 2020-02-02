@@ -1,5 +1,5 @@
 AIForces API documentation.
-=======================================
+***************************
 
 .. toctree::
    :maxdepth: 2

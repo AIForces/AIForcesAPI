@@ -1,10 +1,10 @@
 Return objects
---------------
+**************
 
 .. _contest-label:
 
 Contest
-^^^^^^^
+=======
 Represents general info about one competition.
 
 .. table::
@@ -35,58 +35,56 @@ Represents general info about one competition.
    ============= ===================== ===========================================
 
 Example
-"""""""
+   .. code-block:: json
 
-.. code-block:: json
-
-   {
-      "id": 105,
-      "short_name": "tron_contest",
-      "name": "First awesome AIForces contest.",
-      "hidden": false,
-      "rated": true,
-      "description": "Lorem ipsum dolor sit amet.",
-      "difficulty": 1,
-      "start_time": "2019-01-24T23:02:40+00:00",
-      "duration": 86400,
-      "status": "finished",
-      "has_sandbox": true,
-      "frozen_after": 82800,
-      "authors": {
-         "testers": [
-            "user_tester_1",
-            "user_tester_2",
-         ],
-         "front-enders": [
-            "front-end-god"
-         ],
-         "problemsetters": [
-            "icpc-person"
-         ],
-         "coordinators": [
-            "300iq"
-         ]
-      },
-      "managers": {
-         "read": [
-            "tester_meshanya",
-            "tester_sanya",
-         ],
-         "write": [
-            "problemwriter_anton"
-         ]
-      },
-      "problems": {
-         "A": "tron",
-         "B": "chess",
-         "C": "go"
+      {
+         "id": 105,
+         "short_name": "tron_contest",
+         "name": "First awesome AIForces contest.",
+         "hidden": false,
+         "rated": true,
+         "description": "Lorem ipsum dolor sit amet.",
+         "difficulty": 1,
+         "start_time": "2019-01-24T23:02:40+00:00",
+         "duration": 86400,
+         "status": "finished",
+         "has_sandbox": true,
+         "frozen_after": 82800,
+         "authors": {
+            "testers": [
+               "user_tester_1",
+               "user_tester_2",
+            ],
+            "front-enders": [
+               "front-end-god"
+            ],
+            "problemsetters": [
+               "icpc-person"
+            ],
+            "coordinators": [
+               "300iq"
+            ]
+         },
+         "managers": {
+            "read": [
+               "tester_meshanya",
+               "tester_sanya",
+            ],
+            "write": [
+               "problemwriter_anton"
+            ]
+         },
+         "problems": {
+            "A": "tron",
+            "B": "chess",
+            "C": "go"
+         }
       }
-   }
 
 .. _tournament-label:
 
 Tournament
-^^^^^^^^^^
+==========
 Represents general info about one tournament.
 (contest may include several intermediate tournament and one final tournament)
 
@@ -109,23 +107,21 @@ Represents general info about one tournament.
    ================ ======== ===================================================
 
 Example
-"""""""
+   .. code-block:: json
 
-.. code-block:: json
-
-   {
-      "id": 123,
-      "name": "first blood",
-      "hidden": false,
-      "start_time": "2019-01-24T23:02:40+00:00",
-      "tournament_type": "swiss",
-      "status": "in_progress"
-   }
+      {
+         "id": 123,
+         "name": "first blood",
+         "hidden": false,
+         "start_time": "2019-01-24T23:02:40+00:00",
+         "tournament_type": "swiss",
+         "status": "in_progress"
+      }
 
 .. _submission-label:
 
 Submission
-^^^^^^^^^^
+==========
 
 Represnts one code submission.
 
@@ -146,25 +142,23 @@ Represnts one code submission.
 
 
 Example
-"""""""
+   .. code-block:: json
 
-.. code-block:: json
-
-   {
-      "id": 278,
-      "user": "patrick",
-      "contest": "tron_test_contest",
-      "problem": "tron",
-      "name": "tron_megasolver2000",
-      "source_file": "submission_278.py",
-      "lang": "pypy3",
-      "submitted_at": "2019-01-24T23:02:40+00:00"
-   }
+      {
+         "id": 278,
+         "user": "patrick",
+         "contest": "tron_test_contest",
+         "problem": "tron",
+         "name": "tron_megasolver2000",
+         "source_file": "submission_278.py",
+         "lang": "pypy3",
+         "submitted_at": "2019-01-24T23:02:40+00:00"
+      }
 
 .. _achievement-label:
 
 Achievement
-^^^^^^^^^^^
+===========
 
 Represents one user's participation score in the given contest
 
@@ -186,23 +180,21 @@ Represents one user's participation score in the given contest
    ==================== ============== =========================================
 
 Example
-"""""""
+   .. code-block:: json
 
-.. code-block:: json
-
-   {
-      "id": 105,
-      "contest": "tron_contest",
-      "rating_before": 1500,
-      "rating_after": 1549,
-      "problem_scores": {
-         "A": 700,
-         "B": 1000,
-         "C": 800
-      },
-      "total_score": 2500,
-      "user": "meshanya",
-      "place": 3,
-      "participants_number": 1000,
-      "achieved_at": "2019-01-24T23:02:40+00:00"
-   }
+      {
+         "id": 105,
+         "contest": "tron_contest",
+         "rating_before": 1500,
+         "rating_after": 1549,
+         "problem_scores": {
+            "A": 700,
+            "B": 1000,
+            "C": 800
+         },
+         "total_score": 2500,
+         "user": "meshanya",
+         "place": 3,
+         "participants_number": 1000,
+         "achieved_at": "2019-01-24T23:02:40+00:00"
+      }

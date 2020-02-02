@@ -1,57 +1,92 @@
 Tournament
-----------
+**********
+
+Endpoints
+=========
 
 [GET] /contests/:contest/tournaments
-	- Arguments 
+------------------------------------
+	Returns
+		``200 (OK)``
 
-	.. csv-table::
-		:header: "Argument", "Format", "Default", "Description"
+	Arguments
+		.. table::
 
-		, , ,
+		    ============= ================ ======================= ==============================
+		    Argument      Format           Default                 Description
+                
+		    ============= ================ ======================= ==============================
+	
+	Example
+		.. code-block:: bash
 
-	- Example
-
-	- Response
+			gg
+	Response
+		gg
 
 [POST] /contests/:contest/tournaments/
-	- Arguments 
+--------------------------------------
+	Returns
+		``200 (OK)``
 
-	.. csv-table::
-		:header: "Argument", "Format", "Default", "Description"
+	Arguments
+		.. table::
 
-		, , ,
+		    ============= ================ ======================= ==============================
+		    Argument      Format           Default                 Description
+                
+		    ============= ================ ======================= ==============================
+	
+	Example
+		.. code-block:: bash
 
-	- Example
-
-	- Response
+			gg
+	Response
+		gg
 
 [PUT] /contests/:contest/tournaments/:tournament
-	- Arguments 
+------------------------------------------------
+	Returns
+		``200 (OK)``
 
-	.. csv-table::
-		:header: "Argument", "Format", "Default", "Description"
+	Arguments
+		.. table::
 
-		, , ,
+		    ============= ================ ======================= ==============================
+		    Argument      Format           Default                 Description
+                
+		    ============= ================ ======================= ==============================
+	
+	Example
+		.. code-block:: bash
 
-	- Example
-
-	- Response
+			gg
+	Response
+		gg
 
 [PATCH] /contests/:contest/tournaments/:tournament
-	- Arguments 
+--------------------------------------------------
+	Returns
+		``200 (OK)``
 
-	.. csv-table::
-		:header: "Argument", "Format", "Default", "Description"
+	Arguments
+		.. table::
 
-		, , ,
+		    ============= ================ ======================= ==============================
+		    Argument      Format           Default                 Description
+                
+		    ============= ================ ======================= ==============================
+	
+	Example
+		.. code-block:: bash
 
-	- Example
-
-	- Response
+			gg
+	Response
+		gg
 
 [DELETE] /contests/:contest/tournaments/:tournament
 	Deletes the tournament.
-	. warning:: Doesn't remove any dependencies.
+	.. warning:: Doesn't remove any dependencies.
 
 	- Example
 
