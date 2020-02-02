@@ -32,6 +32,8 @@ Represents general info about one competition.
    authors       (see example)         Authors of the contest
    managers      (see example)         Managers of the contest
    problems      (see example)         Problems, used in the contest
+   created_at    string                Time, contest was created. (ISO 8601 format)
+   updated_at    string                Time, contest was last updated. (ISO 8601 format)
    ============= ===================== ===========================================
 
 Example
@@ -78,7 +80,9 @@ Example
             "A": "tron",
             "B": "chess",
             "C": "go"
-         }
+         },
+         "created_at": "2019-01-24T23:02:40+00:00",
+         "updated_at": "2019-01-24T23:02:40+00:00",
       }
 
 .. _tournament-label:
@@ -104,6 +108,8 @@ Represents general info about one tournament.
                              - in_progress
                              - pending_results
                              - finished
+   created_at       string   Time, tournament was created. (ISO 8601 format)
+   updated_at       string   Time, tournament settings was last updated. (ISO 8601 format)
    ================ ======== ===================================================
 
 Example
@@ -115,7 +121,9 @@ Example
          "hidden": false,
          "start_time": "2019-01-24T23:02:40+00:00",
          "tournament_type": "swiss",
-         "status": "in_progress"
+         "status": "in_progress",
+         "created_at": "2019-01-24T23:02:40+00:00",
+         "updated_at": "2019-01-24T23:02:40+00:00",
       }
 
 .. _submission-label:
@@ -132,10 +140,11 @@ Represnts one code submission.
    ============= ======== ======================================================
    id            integer  Submission ID
    user          string   Username of the person, who made the submission
-   contest       string   Contest the submission is attached to
+   contest       string   Contest the submission is attached to.
+   access        string   Submission access modifier. Either ``private``, ``public`` and ``protected``.
    problem       string   Problem, which solution is presented
    name          string   Short name (may be given by the user to identify submissions in a quick way)
-   source_file   string   Name of the source file. File can be downloaded at ``/media/:username/:source_file``
+   source_file   string   URL, which can be used to download the source. Read Media docs.
    lang          string   Identifier of the programming language. Read the corresponding documentation
    submitted_at  string   Submission time (ISO 8601 format)
    ============= ======== ======================================================
@@ -148,9 +157,10 @@ Example
          "id": 278,
          "user": "patrick",
          "contest": "tron_test_contest",
+         "access": "public",
          "problem": "tron",
          "name": "tron_megasolver2000",
-         "source_file": "submission_278.py",
+         "source_file": "/media/submission_278.py",
          "lang": "pypy3",
          "submitted_at": "2019-01-24T23:02:40+00:00"
       }
@@ -197,4 +207,113 @@ Example
          "place": 3,
          "participants_number": 1000,
          "achieved_at": "2019-01-24T23:02:40+00:00"
+      }
+
+.. _problem-label:
+
+Problem
+=======
+
+Represents one problem.
+
+.. table::
+
+   ==================== ==================== =========================================
+   Field                Format               Description
+   ==================== ==================== =========================================
+   id                   integer              Problem ID.
+   short_name           string               Problem unique short name.
+   name                 string               Problem name. May be localized.
+   access               string               Problem access modifier. Either ``private``, ``public`` or ``protected``.
+   description          string               Description of the problem. May be localized.
+   difficulty           integer from 1 to 5  Estimated difficulty. 5 is the most difficult.
+   statements           string               URL, which can be used to download statements pdf. Read Media docs.
+   visualizer           object (dict)        Contains URL of visualizer files: html, css, js. Read Media docs.
+   managers             object (dict)        Managers of the contest.
+   authors              object (dict)        Authors of the contest.
+   minimal_players      integer              Minimal number of players in one challenge.
+   maximal_players      integer              Maximal number of players in one challenge.
+   created_at           string               Time, problem was created. (ISO 8601 format)
+   updated_at           string               Time, problem was last updated. (ISO 8601 format)
+   ==================== ==================== =========================================
+
+Example
+   .. code-block:: json
+
+      {
+         "id": 190,
+         "short_name": "chess",
+         "name": "Chess",
+         "access": "public",
+         "description": "Classical indian game. Played on a checkered board with 64 squares arranged in an 8×8 grid."
+         "difficulty": 4,
+         "statements": "/media/tron/statements.pdf",
+         "visualizer": {
+            "html": "/media/tron/visualizer.html",
+            "css": "/media/tron/visualizer.css",
+            "js": "/media/tron/visualizer.js",
+         },
+         "authors": {
+            "testers": [
+               "user_tester_1",
+               "user_tester_2",
+            ],
+            "front-enders": [
+               "front-end-god"
+            ],
+            "problemsetters": [
+               "icpc-person"
+            ],
+            "coordinators": [
+               "300iq"
+            ]
+         },
+         "managers": {
+            "read": [
+               "tester_meshanya",
+               "tester_sanya",
+            ],
+            "write": [
+               "problemwriter_anton"
+            ]
+         },
+         "minimal_players": 2,
+         "maximal_players": 2,
+      }
+
+
+.. _git_info-label:
+
+Git info
+========
+
+Represents one problem's git settings
+
+.. table::
+
+   ==================== ==================== =========================================
+   Field                Format               Description
+   ==================== ==================== =========================================
+   host                 string               Git hosting. At the moment, only github is supported.
+   user                 string               Github user or organisation, who owns the repo
+   repo                 string               Name of the repository.
+   branch               string               Branch to use in AIForces
+   auto_fetch           boolean              If set to true, cloned repo will be fetched automatically after every commit.
+   commit               object (dict)        Name and Hash of the current commit.
+   ==================== ==================== =========================================
+
+Example
+   .. code-block:: json
+
+      {
+         "host": "github",
+         "user": "aalekseevx",
+         "repo": "tron",
+         "branch": "master",
+         "auto_pull": true,
+         "commit": {
+            "hash": "2872f3cbf85bcb96196f6901d56df8d80b337c58",
+            "name": "Refactoring checker."
+         },
+         "last_fetched": "2019-01-24T23:02:40+00:00"
       }
