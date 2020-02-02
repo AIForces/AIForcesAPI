@@ -6,11 +6,11 @@ authors = ["Aleksandr Alekseev <https://github.com/aalekseevx>", "Danil Doroshin
 
 [tool.poetry.dependencies]
 python = "^3.6"
+
+[tool.poetry.dev-dependencies]
 sphinx_rtd_theme = "^0.4.3"
 sphinx = "^2.3.1"
 taskipy = "^1.1.2"
-
-[tool.poetry.dev-dependencies]
 
 [build-system]
 requires = ["poetry>=0.12"]
