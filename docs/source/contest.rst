@@ -21,7 +21,15 @@ Endpoints
             show_hidden   boolean          false                   If set to true by non-admin, Forbidden error is returned.
                                                                    Admins can view all the contests.
             fields        list of strings  ``Contest`` fields      Fields, which will be retrieved.
-                                                                   Must be a subset of ``Contest`` fields                  
+                                                                   Must be a subset of ``Contest`` fields
+            filter        list of strings  Filtering is not used   If present, only contests with given identifiers will be in the     
+                                                                   response.
+            limit         integer          20                      Maximum number of recources, which will be returned.
+            offset        integer          0                       Index of first resource, which should be returned
+                                                                   (used for pagination).
+            sort          sort             -start_time             One of the ``Contest`` object fields, which should be used
+                                                                   for sorting the items. Order is **ascending**, to reverse
+                                                                   the order, use ``-`` at the begining of the string.
             ============= ================ ======================= ==============================
 
     Example
