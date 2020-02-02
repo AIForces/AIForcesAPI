@@ -147,6 +147,10 @@ Endpoints
         Response
             ``200 (OK)``
 
+[POST] /contests
+----------------
+    Creates new problem. If short-name is not given, it will be automatically generated using Display name and returned in Response.
+
 [PATCH] /contests/:contest-short-name
 -------------------------------------
     Change general contest settings.
