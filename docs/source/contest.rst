@@ -8,16 +8,17 @@ Contest API provides you with all the info availiable about the past, current an
 
     Returns
         list of ``Contest`` objects.
-    Arguments 
-        .. csv-table::
-            :header: "Argument", "Format", "Default", "Description"
+    Arguments
+        .. table::
 
-            show_hidden, boolean, false, "If set to true by non-admin, Forbidden error is returned. Admins can view all the contests."
-            fields, "list of strings", "All ``Contest`` object fields", "Fields, which will be retrieved. Must be a subset of ``Contest`` object fields"
-            filter, "list of strings", "Filtering is not used", "If present, only contests with given identifiers will be in the response."
-            limit, integer, 20, "Maximum number of recources, which will be returned."
-            offset, integer, 0, "Index of first resource, which should be returned (used for pagination)."
-            sort, string, "-start_time", "One of the ``Contest`` object fields, which should be used for sorting the items. Order is **ascending**, to reverse the order, use ``-`` at the begining of the string." 
+            ============= ================ ======================= ==============================
+            Argument      Format           Default                 Description
+
+            show_hidden   boolean          false                   If set to true by non-admin, Forbidden error is returned.
+                                                                   Admins can view all the contests.
+            fields        list of strings  ``Contest`` fields      Fields, which will be retrieved.
+                                                                   Must be a subset of ``Contest`` fields                  
+            ============= ================ ======================= ==============================
 
     Example
         Request
@@ -32,7 +33,7 @@ Contest API provides you with all the info availiable about the past, current an
                     -d limit=2 \
                     -d sort=-start_time \
         Response
-            .. code-block:: js
+            .. code-block:: json
 
                 [
                     {
@@ -53,10 +54,14 @@ Contest API provides you with all the info availiable about the past, current an
         Contest object
 
     Arguments
-        .. csv-table::
-            :header: "Argument", "Format", "Default", "Description"
+        .. table::
+            
+            ============= ================ ======================= ==============================
+            Argument      Format           Default                 Description
 
-            fields, "list of strings", "All ``Contest`` object fields", "Fields, which will be retrieved. Must be a subset of ``Contest`` object fields"
+            fields        list of strings  All ``Contest`` fields  Fields, which will be retrieved.
+                                                                   Must be a subset of ``Contest`` fields
+            ============= ================ ======================= ==============================
 
     Example
         Request
@@ -72,7 +77,7 @@ Contest API provides you with all the info availiable about the past, current an
         Response
 
 
-            .. code-block:: js
+            .. code-block:: json
 
                 {
                     "id": 105,
@@ -93,13 +98,6 @@ Contest API provides you with all the info availiable about the past, current an
                         ]
                     }
                 }
-
-
-
-
-
-
-
 
 [PUT] /contests/:contest-short-name
     Creates new contest, managed by the current user.
@@ -184,16 +182,23 @@ Contest API provides you with all the info availiable about the past, current an
         list of Achievement objects.
 
     Arguments 
+        .. table::
+            
+            ============== ================ ======================= ==============================
+            Argument       Format           Default                 Description
 
-    .. csv-table::
-        :header: "Argument", "Format", "Default", "Description"
-
-        fields, "list of strings", "All ``Achievement`` object fields", "Fields, which will be retrieved. Must be a subset of ``Achievement`` object fields"
-        filter, "list of strings", "Filtering is not used", "If present, only contests with given identifiers will be in the response."
-        filter_friends, "boolean", false, "Exclude users, who are not your friends."
-        limit, integer, 20, "Maximum number of resources, which will be returned."
-        offset, integer, 0, "Index of first resource, which should be returned (used for pagination)."
-        sort, string, "place", "One of the ``Achievement`` object fields, which should be used for sorting the items. Order is **ascending**, to reverse the order, use ``-`` at the begining of the string." 
+            fields.        list of strings  All ``Achievement``     Fields, which will be retrieved. 
+                                            fields                  Must be a subset of ``Achievement`` object fields.
+            filter         list of strings  Filtering is not used   If present, only contests with given identifiers
+                                                                    will be in the response.
+            filter_friends boolean          false                   Exclude users, who are not your friends.
+            limit          integer          20                      Maximum number of resources, which will be returned.
+            offset         integer          0                       Index of first resource, which should be returned (used for
+                                                                    pagination).
+            sort           string           place                   One of the ``Achievement`` fields, which should be used
+                                                                    for sorting the items. Order is **ascending**,
+                                                                    to reverse the order, use ``-`` at the begining of the string. 
+            ============== ================ ======================= ==============================
 
     Example
         Request
@@ -208,7 +213,7 @@ Contest API provides you with all the info availiable about the past, current an
                     -d fields=rating_after \
                     -d limit=2 \
         Response
-            .. code-block:: js
+            .. code-block:: json
 
                 [
                     {
@@ -216,7 +221,7 @@ Contest API provides you with all the info availiable about the past, current an
                         "place": 1
                         "rating_before": 1500,
                         "rating_after": 1543,
-                        "achieved_at" = "2019-01-24T23:02:40+00:00",
+                        "achieved_at": "2019-01-24T23:02:40+00:00",
                     },
 
                     {
@@ -224,7 +229,7 @@ Contest API provides you with all the info availiable about the past, current an
                         "place": 2,
                         "rating_before": 1500,
                         "rating_after": 1478,
-                        "achieved_at" = "2019-03-24T23:02:40+00:00",
+                        "achieved_at": "2019-03-24T23:02:40+00:00",
                     }
                 ]
 
