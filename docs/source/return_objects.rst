@@ -172,6 +172,7 @@ Example
           "source_file": "/media/submission_278.py",
           "lang": "pypy3",
           "submitted_at": "2019-01-24T23:02:40+00:00"
+          "pretest": [109, 110, 111]
       }
 
 .. _achievement-label:
