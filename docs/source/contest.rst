@@ -234,6 +234,7 @@ Endpoints
                 -d fields=rating_before \
                 -d fields=rating_after \
                 -d limit=2 \
+
         Response
             .. code-block:: json
 
