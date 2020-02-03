@@ -1,6 +1,9 @@
 Submission
 **********
 
+General information
+===================
+
 Endpoints
 =========
 

@@ -1,6 +1,9 @@
 Problem
 *******
 
+General information
+===================
+
 Endpoints
 =========
 

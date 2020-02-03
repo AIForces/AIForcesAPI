@@ -1,6 +1,9 @@
 Tournament
 **********
 
+General information
+===================
+
 Endpoints
 =========
 
