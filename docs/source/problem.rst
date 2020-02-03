@@ -146,7 +146,7 @@ Endpoints
          .. code-block:: json
 
             {
-                branch": "master",
+                "branch": "master",
                 "commit": {
                     "hash": "2872f3cbf85bcb96196f6901d56df8d80b337c58",
                     "name": "Refactoring checker."
@@ -156,6 +156,14 @@ Endpoints
 [PATCH] /problems/:problem-short-name/git
 -----------------------------------------
    Changes git settings for the problem.
+
+[POST] /problems/:problem-short-name/git/fetch
+----------------------------------------------
+   Request fetching from the origin.
+
+[GET] /problems/:problem-short-name/git/log
+-------------------------------------------
+   View git log.
 
 [POST] /problems/:problem-short-name/git/webhooks
 -------------------------------------------------
