@@ -1,7 +1,62 @@
 Contest
 *******
 
-Contest API provides you with all the info availiable about the past, current and upcoming contests. It can be used to submit solutions and manage upcoming events.
+General information
+===================
+
+Official contests
+-----------------
+
+Contest is the main event, happening in AIForces. This is a competition, which consist of several
+problems and usually lasts for number of days.
+If the contest is official (approved by AIForces admins), problems **must not** being used or known before.
+Also, problems should be kept in secret. However, every person can create contest for his private purposes or for 
+educational purposes.
+
+Incompetetive contests
+----------------------
+
+Some contests may be created for research or educational purposes and the participants are not
+going to compete with each other. They are called incompetetive and all submisssions made in the contest
+are ``public``.
+
+Infinite contest and Problem archive
+------------------------------------
+
+Contest may be infinite. They are usually made for practice. `Problem archive` is a special kind of contest,
+where all public problems are included for fun and practice.
+
+Hidden contests
+---------------
+
+Contest are usually hidden when they are not ready for production or time is not certain.
+
+Sandbox
+-------
+
+Users can make their submissions ``protected`` (they are ``private`` by default).
+From this point, they will be available for challenge in contest sandbox.
+Contest sandbox is a place where people learn game mechanics and gain new ideas by creating challenges
+between any ``protected`` and ``public`` submissions. Sandbox is closed as soon as contest is `frozen`.
+
+Tournaments
+-----------
+
+Intermediate tournaments are generally used to motivate participants to upgrade their solutions. They produce standings,
+which can be used as intermediate results of the contest. They **do not** affect the final score.
+
+Final tournaments are used to determine the final results and the winner of the contest. After the tournaments are completed,
+final standings table will be generated and published as soon as contest managers will review it (cheating protection also happens in this phase).
+
+
+Rated contests
+--------------
+
+If the contest is ``rated`` (only official contest can be rated), final standings also has rating recalculation. 
+User's rating are changed as soon as contest managers have reviewed and checked the final standings.
+
+
+Contest API provides you with all the info availiable about the past, current and upcoming contests. It can be used to submit solutions, use sandbox, manage upcoming events and many more.
 
 Endpoints
 =========
@@ -259,3 +314,11 @@ Endpoints
 [GET] /contests/:contest/participants
 -------------------------------------
    Works same way as ``[GET] /users``, but returns users registered for the contest.
+
+[PATCH] /contests/:contest/participants
+---------------------------------------
+   Manage contest's participants
+
+[PATCH] /contests/:contest/register
+---------------------------------------
+   Add yourself to participants, if registration is open.
