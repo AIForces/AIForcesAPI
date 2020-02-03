@@ -29,7 +29,7 @@ This method has several upsides
 
 Back-end
 ^^^^^^^^
-There are basically four parts to the innter workings of this API. The check,
+There are basically four parts to the inner workings of this API. The check,
 the database, the file server and the delivery service.
 
 The check
