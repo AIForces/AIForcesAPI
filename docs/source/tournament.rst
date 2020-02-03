@@ -6,88 +6,90 @@ Endpoints
 
 [GET] /contests/:contest/tournaments
 ------------------------------------
-	Returns
-		``200 (OK)``
+   Returns
+      ``200 (OK)``
 
-	Arguments
-		.. table::
+   Arguments
+      .. table::
 
-		    ============= ================ ======================= ==============================
-		    Argument      Format           Default                 Description
-                
-		    ============= ================ ======================= ==============================
-	
-	Example
-		.. code-block:: bash
+         ============= ================ ======================= ==============================
+         Argument      Format           Default                 Description
+             
+         ============= ================ ======================= ==============================
+    
+   Example
+      .. code-block:: bash
 
-			gg
-	Response
-		gg
+         gg
+   Response
+      gg
 
 [POST] /contests/:contest/tournaments/
 --------------------------------------
-	Returns
-		``200 (OK)``
+   Returns
+      ``200 (OK)``
 
-	Arguments
-		.. table::
+   Arguments
+      .. table::
 
-		    ============= ================ ======================= ==============================
-		    Argument      Format           Default                 Description
-                
-		    ============= ================ ======================= ==============================
-	
-	Example
-		.. code-block:: bash
+         ============= ================ ======================= ==============================
+         Argument      Format           Default                 Description
+             
+         ============= ================ ======================= ==============================
+    
+   Example
+      .. code-block:: bash
 
-			gg
-	Response
-		gg
+         gg
+   Response
+      gg
 
 [PUT] /contests/:contest/tournaments/:tournament
 ------------------------------------------------
-	Returns
-		``200 (OK)``
+   Returns
+      ``200 (OK)``
 
-	Arguments
-		.. table::
+   Arguments
+      .. table::
 
-		    ============= ================ ======================= ==============================
-		    Argument      Format           Default                 Description
-                
-		    ============= ================ ======================= ==============================
-	
-	Example
-		.. code-block:: bash
+         ============= ================ ======================= ==============================
+         Argument      Format           Default                 Description
+             
+         ============= ================ ======================= ==============================
+    
+   Example
+      .. code-block:: bash
 
-			gg
-	Response
-		gg
+         gg
+   Response
+      gg
 
 [PATCH] /contests/:contest/tournaments/:tournament
 --------------------------------------------------
-	Returns
-		``200 (OK)``
+   Returns
+      ``200 (OK)``
 
-	Arguments
-		.. table::
+   Arguments
+      .. table::
 
-		    ============= ================ ======================= ==============================
-		    Argument      Format           Default                 Description
-                
-		    ============= ================ ======================= ==============================
-	
-	Example
-		.. code-block:: bash
+         ============= ================ ======================= ==============================
+         Argument      Format           Default                 Description
+             
+         ============= ================ ======================= ==============================
+    
+   Example
+      .. code-block:: bash
 
-			gg
-	Response
-		gg
+         gg
+   Response
+      gg
 
 [DELETE] /contests/:contest/tournaments/:tournament
-	Deletes the tournament.
-	.. warning:: Doesn't remove any dependencies.
+   Deletes the tournament.
+   
+   .. warning:: Doesn't remove any dependencies.
 
-	- Example
+   Example
+      gg
 
-	
+    
