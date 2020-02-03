@@ -106,3 +106,73 @@ In the submissions folder, each submission is bounded by a folder named as
 
 Since all the last stage folders have the unique identifier in their name, they
 are guaranteed to be unique.
+
+Folder-likes
+^^^^^^^^^^^^
+
+A folder-like upload is just a grouping feature for the end user. Some actions
+require multiple files uploaded at once (case study: tasks). In this case it is
+convenient to provide access to said files in a consistent manner. One way to
+achieve this might be to use the same long identifier for the whole group, only
+leaving the filenames to differentiate them.
+
+.. warning:: This method does not have any connection to a physical folder on
+   a hard drive. It only lets multiple files to share the same long identifier.
+   After that, they may have completely unrelated fs paths mapped to them.
+
+Migration
+"""""""""
+Folder-likes are not incompatable with regular file uploads. They only add a
+check on the provided filename, which should be done anyways. For example if
+a regular file /id1/abc.txt is registered, the url /id1/def.txt should not
+resolve, even if it has a correct url. So, a folder upload of abc.txt def.txt
+and ghi.txt would look like this::
+
+   As a regular upload:
+   /id1/abc.txt
+   /id2/def.txt
+   /id3/ghi.txt
+
+   As a folder-like upload:
+   /id1/abc.txt
+   /id1/def.txt
+   /id1/ghi.txt
+
+Mixing both styles is acceptable within the same database which makes migrating
+from one to another easy.
+
+Task uploads
+""""""""""""
+Task file inspection is the main use for this feature, so it is necessary to
+discuss it in more depth. There is no access to the original source files, but
+only to those that are the result of the task compilation. It should expose
+both required files (like `statement.pdf`) and those listed in the maniefst
+file by the uploader. Those file do not have to be in the same fs folder.
+Example::
+
+   task-folder
+   ├── MANIFEST
+   ├── check.py
+   ├── statement
+   │   ├── statement.tex
+   │   ├── cat.jpg
+   │   ├── data.csv
+   │   └── statement.pdf
+   ├── viewer
+   │   ├── main.css
+   │   ├── main.html
+   │   └── main.js
+   ├── run.sh
+   └── favicon.ico
+
+   Required file paths:
+   /taskid/run.sh
+   /taskid/statement.pdf
+   /taskid/main.css
+   /taskid/main.js
+   /taskid/main.html
+
+   Paths from manifest:
+   /taskid/check.py
+   /taskid/favicon.ico
+   /taskid/data.csv
