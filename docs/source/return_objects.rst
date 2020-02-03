@@ -15,12 +15,16 @@ Represents general info about one competition.
    id            integer               Contest ID
    short_name    string                Contest unique short name
    name          string                Name of the contest. May be localized
+   official      boolean               If contest is official, it is approved by admins
+   reg_open      boolean               If contest is used in a private group, registration may be restricted.
    hidden        boolean               If true, contest is not visible for public
    rated         boolean               After rating contests, rating is recalculated
+   competetive   boolean               If the contest is competetive, submissions are ``private`` by default,
+                                       otherwise they are ``public``.
    description   string                Description of the contest. May be localized
    difficulty    integer from 1 to 5   Estimated difficulty. 5 is the most difficult
    start_time    integer               Start of the contest (ISO 8601 format)
-   duration      integer               Duration of contest in seconds
+   duration      integer               Duration of contest in seconds. `-1` if contest is infinite.
    status        string                Describes status of the contest
 
                                        - before
@@ -28,7 +32,8 @@ Represents general info about one competition.
                                        - pending_results
                                        - finished
    has_sandbox   boolean               If true, contest has a sandbox and corresponding API can be used
-   frozen_after  integer               May be absent. If contest has sandbox, it will be turned off after number of seconds, set in this variable
+   frozen_after  integer               If contest has sandbox, it will be turned off after number of seconds, set in this variable.  
+                                       Otherwise, `-1`.
    authors       (see example)         Authors of the contest
    managers      (see example)         Managers of the contest
    problems      (see example)         Problems, used in the contest
@@ -43,8 +48,11 @@ Example
           "id": 105,
           "short_name": "tron_contest",
           "name": "First awesome AIForces contest.",
+          "official": true,
+          "reg_open": true,
           "hidden": false,
           "rated": true,
+          "competetive": true,
           "description": "Lorem ipsum dolor sit amet.",
           "difficulty": 1,
           "start_time": "2019-01-24T23:02:40+00:00",
@@ -147,6 +155,7 @@ Represnts one code submission.
    source_file   string   URL, which can be used to download the source. Read Media docs.
    lang          string   Identifier of the programming language. Read the corresponding documentation
    submitted_at  string   Submission time (ISO 8601 format)
+   pretest       list     List of challenge ids - submission pretests.
    ============= ======== ======================================================
 
 
