@@ -61,19 +61,19 @@ Example
           "has_sandbox": true,
           "frozen_after": 82800,
           "authors": {
-          "testers": [
-              "user_tester_1",
-              "user_tester_2",
-          ],
-          "front-enders": [
-              "front-end-god"
-          ],
-          "problemsetters": [
-              "icpc-person"
-          ],
-          "coordinators": [
-              "300iq"
-          ]
+              "testers": [
+                  "user_tester_1",
+                  "user_tester_2",
+              ],
+              "front-enders": [
+                  "front-end-god"
+              ],
+              "problemsetters": [
+                  "icpc-person"
+              ],
+              "coordinators": [
+                  "300iq"
+              ]
           },
           "managers": {
               "read": [
