@@ -282,7 +282,7 @@ Example
       }
 
 
-.. _git_info-label:
+.. _git-info-label:
 
 Git info
 ========

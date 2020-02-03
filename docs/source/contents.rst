@@ -6,6 +6,8 @@ AIForces API documentation.
    :caption: Contents:
 
    introduction
+   docs_guide
+   errors
    return_objects
    authentication
    user_info

@@ -10,7 +10,7 @@ Endpoints
     Retrieve general information of the problems.
     
     Returns
-        list of ``Problem`` objects.
+        list of :ref:`problem-label` objects.
     Arguments
         .. table::
 
@@ -18,15 +18,15 @@ Endpoints
             Argument      Format           Default                 Description
 
             show_private  boolean          false                   If set to true by non-admin, Forbidden error is returned.
-                                                                   Admins can view all the contests.
-            fields        list of strings  ``Problem`` fields      Fields, which will be retrieved.
-                                                                   Must be a subset of ``Problem`` fields
-            filter        list of strings  Filtering is not used   If present, only contests with given identifiers will be in the     
+                                                                   Admins can view all the problems.
+            fields        list of strings  All fields              Fields, which will be retrieved.
+                                                                   Must be a subset of :ref:`problem-label` fields
+            filter        list of strings  Filtering is not used   If present, only problems with given identifiers will be in the     
                                                                    response.
             limit         integer          20                      Maximum number of recources, which will be returned.
             offset        integer          0                       Index of first resource, which should be returned
                                                                    (used for pagination).
-            sort          sort             -created_at             One of the ``Contest`` object fields, which should be used
+            sort          sort             -created_at             One of the :ref:`problem-label` fields, which should be used
                                                                    for sorting the items. Order is **ascending**, to reverse
                                                                    the order, use ``-`` at the begining of the string.             
             ============= ================ ======================= ==============================
@@ -61,17 +61,17 @@ Endpoints
     Retrieve general information about given problem.
 
     Returns
-        ``Problem`` object
+        :ref:`problem-label` object
 
     Arguments
         .. table::
             
-            ============= ================ ======================= ==============================
-            Argument      Format           Default                 Description
+            ============= ================ ======================== ==============================
+            Argument      Format           Default                  Description
 
-            fields        list of strings  All ``Contest`` fields  Fields, which will be retrieved.
-                                                                   Must be a subset of ``Problem`` fields
-            ============= ================ ======================= ==============================
+            fields        list of strings  All :ref:`problem-label` fields  Fields, which will be retrieved.
+                                                                    Must be a subset of :ref:`problem-label` fields
+            ============= ================ ======================== ==============================
 
     Example
         Request
@@ -116,15 +116,15 @@ Endpoints
     Retrieve info about problem git configuration.
 
     Returns
-        ``Git info`` object, describing git settings for the problem.
+        :ref:`git-info-label` object, describing git settings for the problem.
     Arguments
         .. table::
 
             ============= ================ ======================= ==============================
             Argument      Format           Default                 Description
 
-            fields        list of strings  ``Git info`` fields     Fields, which will be retrieved.
-                                                                   Must be a subset of ``Git info`` fields           
+            fields        list of strings  :ref:`git-info-label`   Fields, which will be retrieved.
+                                           fields                  Must be a subset of :ref:`git-info-label` fields           
             ============= ================ ======================= ==============================
     Example
         Request
