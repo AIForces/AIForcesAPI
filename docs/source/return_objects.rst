@@ -322,7 +322,7 @@ Example
           "user": "aalekseevx",
           "repo": "tron",
           "branch": "master",
-          "auto_pull": true,
+          "auto_fetch": true,
           "commit": {
               "hash": "2872f3cbf85bcb96196f6901d56df8d80b337c58",
               "name": "Refactoring checker."
