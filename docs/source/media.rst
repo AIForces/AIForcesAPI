@@ -74,6 +74,7 @@ In order to ensure a unique identifier, it should be computed in the following
 way for an individual file::
 
    sha-256( TIME_OF_UPLOAD + FILE_CONTENTS + AUTHOR_USERNAME + SECRET_SALT )
+   FILE_CONTENTS = PLANNED_FS_PATH + REAL_FILE_CONTENTS
 
 For a folder-like, all file contents should be concatenated in order to compute
 the hash.
