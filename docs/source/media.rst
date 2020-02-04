@@ -82,12 +82,15 @@ the hash.
 
 Folder structure
 ^^^^^^^^^^^^^^^^
+
+.. note:: This section is proposed to be moved into a separate article.
+
 Since almost every file is visible to the content delivery service, they should
 be structured in folders in such a way that there would be logical,
 human-understandable separation. Firstly there is the SMB server identifier.
 Because all servers have the same internal structure, it only impacts sharding.
 Next are the big categories: user-media, tasks, submissions and the judging
-sandbox. The delivery system should only have access to the first three.
+sandbox.
 
 In the user-media folder, there are broad categories like profile-pictures,
 posts and so on. In each of them, each file is bound in its own folder with the
@@ -105,6 +108,11 @@ In the submissions folder, each submission is bounded by a folder named as
 ``contestshortname-taskshortname-username-longidentifier``. Example::
 
    /smb2/submissions/tron4eva-tronagain-whoisthis-2be23c585f15e5fd3279d0663036dd9f6e634f4225ef326fc83fb874dbb81a0f/main.cpp
+
+In the judging sandbox the media api has the access to the judging logs. They
+are left by the judge service for viewer apps. Example::
+
+   /smb5/judging/dbff529b4154cabef35d4239dff6b2a2832d8b55a58a850cbacb1f375458775d/log1
 
 Since all the last stage folders have the unique identifier in their name, they
 are guaranteed to be unique.
