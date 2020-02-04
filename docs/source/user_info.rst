@@ -30,8 +30,8 @@ email
    Email is disclosed only in accordance with the user's privacy settings.
    May be used as the primary login key.
 
-role
-   Global permission role for this user. Either `Administrator` or `User`.
+groups
+   A list of all groups this user is a part of.
 
 metadata
    Aggregate property of non-crucial information about the user
@@ -54,31 +54,58 @@ score
 `settings` and `privacy-settings`
    See :ref:`user-settings-label`
 
+Groups
+^^^^^^
+Permissions and relations are done through groups. Each object has some groups
+attached to it. For example, a user `coolguy` causes a group `coolguy-friends`
+to appear. Contests have `contest-participant` and `contest-administrator`
+groups and so on for other entities.
+
+Permissions
+"""""""""""
+Both the username and the group list are encoded in the JWT token so that
+services could determine permissions without accessing the database for the
+user object. A permission is determined as a union of users and groups that
+have access to this information. To avoid confusion, users are prefixed with
+``u\`` and groups with ``g\``.
+
+For example, if contents read permissions are as follows::
+
+   [ "u\coolguy", "g\coolguy-friends", "g\coolcontest-participants" ]
+
+Any user who matches at least one constraint is granted access to that content.
+
+There is a list of special groups not tied to any particular object.
+
+g\everyone
+   Makes the described object public. An empty permission array is considered
+   to have `g\everyone` in it.
+
+g\administrator
+   If held by a user, grants access to everything regardless of the permissions.
+
 Relations
 ^^^^^^^^^
 Tasks
    Each task is owned by a particular user - its author.
-   The task may be private, protected or public.
-   Private tasks can only be used in private contests by the user themself.
-   Protected tasks can be used by anyone in any contest,
-   but the task source is only available to the author.
-   Public tasks expose the original source files and
-   can be forked by other users who may wish to edit them.
+   They can set the use and read permissions. Use permission lets that task be
+   used in a contest. Read permissions grants access to the source files and
+   lets users fork that task.
 
 Contests
-   Each user can own, administrate, participate in and finish contests
-   (owners automatically administrate, and they are required to participate in order to finish a contest).
-   So thus there are two distinct sets of contests:
-   responsibilities (ownerships and administrations) and participations
-   (planned contests, current contests, results and doreshka).
+   Each user can own, administrate, participate in and finish contests.
+   Each contest has a ``-participant`` and a ``-administrator`` groups, granting
+   them access to different actions on the contest.
 
 Submissions
    Each submission is identified by a user, contest and a task.
-   The user who uploaded the solution
+   The user who uploaded the solution is the author, and has access to the
+   source code and logs that this submission produces.
 
 Friends
    Self-explanatory. The user has to confirm the friend invite
-   before the other person gets added to the friends list.
+   before the other person gets added to the friends list. Each user has their
+   own ``-friend`` group.
 
 Endpoints
 ^^^^^^^^^
