@@ -35,7 +35,8 @@ the database, the file server and the delivery service.
 The check
 """""""""
 Before even trying to find the file, the api has to check whether the user has
-the rights to download that file.
+the rights to download that file. Those are stored in a separate column in the
+lookup database.
 
    .. note:: Caching policy
 
