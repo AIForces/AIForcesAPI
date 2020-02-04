@@ -122,10 +122,10 @@ leaving the filenames to differentiate them.
 
 Migration
 """""""""
-Folder-likes are not incompatable with regular file uploads. They only add a
+Folder-likes are not incompatible with regular file uploads. They only add a
 check on the provided filename, which should be done anyways. For example if
 a regular file /id1/abc.txt is registered, the url /id1/def.txt should not
-resolve, even if it has a correct url. So, a folder upload of abc.txt def.txt
+resolve, even if it has a correct id. So, a folder upload of abc.txt def.txt
 and ghi.txt would look like this::
 
    As a regular upload:
@@ -134,9 +134,9 @@ and ghi.txt would look like this::
    /id3/ghi.txt
 
    As a folder-like upload:
-   /id1/abc.txt
-   /id1/def.txt
-   /id1/ghi.txt
+   /id4/abc.txt
+   /id4/def.txt
+   /id4/ghi.txt
 
 Mixing both styles is acceptable within the same database which makes migrating
 from one to another easy.
@@ -147,7 +147,7 @@ Task file inspection is the main use for this feature, so it is necessary to
 discuss it in more depth. There is no access to the original source files, but
 only to those that are the result of the task compilation. It should expose
 both required files (like `statement.pdf`) and those listed in the maniefst
-file by the uploader. Those file do not have to be in the same fs folder.
+file by the uploader. Those files do not have to be in the same fs folder.
 Example::
 
    task-folder
