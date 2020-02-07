@@ -186,3 +186,42 @@ Example::
    /taskid/check.py
    /taskid/favicon.ico
    /taskid/data.csv
+
+Endpoints
+^^^^^^^^^
+
+There is only one endpoint available
+
+GET /media/:longid/:filename
+   .. table:: Parameters
+
+      ============= ============================================================
+      Parameter     Description
+      ============= ============================================================
+      ``:longid``   64 hex chars
+      ``:filename`` complies to ``^[a-zA-Z0-9_\-()\[\]{}!@#$%^&*:,.?]{3,}\.[a-z]{1,16}$``
+      ============= ============================================================
+
+   .. table:: Returns
+
+      ===== ====================================================================
+      Code  Description
+      ===== ====================================================================
+      200   Request successful, file in the body
+      301   This file is considered to be replaced by another
+      404   File does not exist or the user does not have sufficient permissions
+      ===== ====================================================================
+
+   Examples::
+
+      GET /media/0bcee7d9d61e050c32682a527bcf721d0a05149dabf9bbca7e09fae6f1dd089b/main.c
+      200 OK
+      #include<stdio.h>
+      ...
+
+      GET /media/63c90b247a3c836d678d2a4a5a2678c0e9df2bd44675fd0c035c028984847b11/statement.pdf
+      301 MOVED PERMANENTLY
+      Location: https://ourhosting.com/media/805cb05bbe3102db8359564091bed769e0875aecc529787768663570cea75a14/statement.pdf
+
+      GET /media/1b27cf60245964a7e5a7ce09030cc63d9909120e9d2391219e464469c6f2176a/answers.txt
+      404 NOT FOUND
