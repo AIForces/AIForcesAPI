@@ -1,7 +1,7 @@
+.. _media-api-label:
+
 Media API
 ---------
-
-.. note:: This article may be moved to the general AIForces doc
 
 Overview
 ^^^^^^^^
@@ -23,8 +23,8 @@ This method has several upsides
    since it will uniquely map to a particular file.
 3. It allows for pseudo-folders. If all filenames are unique and the
    circumstances call for that (for example, a task folder) those files can be
-   kept together for ease of access.
-4. It preserves the orignal filenames, which helps the user who uploaded It
+   kept together for ease of access under the same identifier.
+4. It preserves the orignal filenames, which helps the user who uploaded it to
    identify the file later.
 
 Back-end
@@ -36,18 +36,19 @@ The check
 """""""""
 Before even trying to find the file, the api has to check whether the user has
 the rights to download that file. Those are stored in a separate column in the
-lookup database.
+lookup database. See :ref:`permissions-label`.
 
    .. note:: Caching policy
 
       At this stage the api also decides the caching policy for the files.
-      Private files should not be cached outside the in-app delivery service.
+      Private files should not be cached outside of the in-app delivery service.
       Public files, however, should be set to cache.
 
 The database
 """"""""""""
-It stores a simple lookup, for each identifier there is a path for the file in
-the file server.
+Each row has the identifier + the original filename as the primary key. For it,
+it stores the fs path to the file (including the sharding key) and read and
+modify permissions.
 
 The file server
 """""""""""""""
@@ -56,7 +57,7 @@ in the content delivery container, and all have the same top-level structure.
 
 The delivery
 """"""""""""
-For that it is logical to use the `XSendfile <https://www.nginx.com/resources/wiki/start/topics/examples/xsendfile/>`_
+It is logical to use the `XSendfile <https://www.nginx.com/resources/wiki/start/topics/examples/xsendfile/>`_
 feature. Since the file servers are mounted at some path to the nginx container
 the sharding can be done in the database step, just by specifying a different
 top level folder, corresponding to an SMB server instance.
@@ -153,6 +154,9 @@ from one to another easy.
 
 Task uploads
 """"""""""""
+
+.. warning:: Consult with the main problemsetting doc :ref:`problemsetting-label`
+
 Task file inspection is the main use for this feature, so it is necessary to
 discuss it in more depth. There is no access to the original source files, but
 only to those that are the result of the task compilation. It should expose
@@ -199,7 +203,7 @@ GET /media/:longid/:filename
       Parameter     Description
       ============= ============================================================
       ``:longid``   64 hex chars
-      ``:filename`` complies to ``^[a-zA-Z0-9_\-()\[\]{}!@#$%^&*:,.?]{3,}\.[a-z]{1,16}$``
+      ``:filename`` complies to `^[a-zA-Z0-9_\-()\[\]{}!@#$%^&*:,.?]{3,}\.[a-z]{1,16}$ <https://regex101.com/r/O89x4V/1>`_
       ============= ============================================================
 
    .. table:: Returns
