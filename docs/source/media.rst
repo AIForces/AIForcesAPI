@@ -206,13 +206,15 @@ GET /media/:longid/:filename
       ``:filename`` complies to `^[a-zA-Z0-9_\-()\[\]{}!@#$%^&*:,.?]{3,}\.[a-z]{1,16}$ <https://regex101.com/r/O89x4V/1>`_
       ============= ============================================================
 
-   .. table:: Returns
+   .. table:: Return codes. See :ref:`return-object-label`
 
       ===== ====================================================================
       Code  Description
       ===== ====================================================================
       200   Request successful, file in the body
       301   This file is considered to be replaced by another
+      401   User must log in before acessing this file
+      403   user does not have sufficient permissions to access this file
       404   File does not exist or the user does not have sufficient permissions
       ===== ====================================================================
 
