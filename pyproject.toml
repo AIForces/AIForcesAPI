@@ -14,6 +14,7 @@ djoser = "^2.0"
 sphinx_rtd_theme = "^0.4.3"
 sphinx = "^2.3.1"
 taskipy = "^1.1.2"
+pywatchman = "^1.4"
 
 [build-system]
 requires = ["poetry>=0.12"]

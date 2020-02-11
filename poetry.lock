@@ -184,6 +184,14 @@ version = "2019.3"
 
 [[package]]
 category = "dev"
+description = "Watchman client for python"
+name = "pywatchman"
+optional = false
+python-versions = "*"
+version = "1.4.1"
+
+[[package]]
+category = "dev"
 description = "Python HTTP for Humans."
 name = "requests"
 optional = false
@@ -365,7 +373,7 @@ secure = ["pyOpenSSL (>=0.14)", "cryptography (>=1.3.4)", "idna (>=2.0.0)", "cer
 socks = ["PySocks (>=1.5.6,<1.5.7 || >1.5.7,<2.0)"]
 
 [metadata]
-content-hash = "2684057353ddabbadde2af42e98ba0270b7c452d3f6fe604adf0e63ad41324f6"
+content-hash = "691cb7a121d48773ad2471826b2b4465a3e273084281088a701d4d35580c70c1"
 python-versions = "^3.6"
 
 [metadata.files]
@@ -475,6 +483,9 @@ pyparsing = [
 pytz = [
     {file = "pytz-2019.3-py2.py3-none-any.whl", hash = "sha256:1c557d7d0e871de1f5ccd5833f60fb2550652da6be2693c1e02300743d21500d"},
     {file = "pytz-2019.3.tar.gz", hash = "sha256:b02c06db6cf09c12dd25137e563b31700d3b80fcc4ad23abb7a315f2789819be"},
+]
+pywatchman = [
+    {file = "pywatchman-1.4.1.tar.gz", hash = "sha256:d0047eb275deafb0011eda0a1a815fbd9742478c3d2b5ad6956d300e447dc2f9"},
 ]
 requests = [
     {file = "requests-2.22.0-py2.py3-none-any.whl", hash = "sha256:9cf5292fcd0f598c671cfc1e0d7d1a7f13bb8085e9a590f48c010551dc6c4b31"},
