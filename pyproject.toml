@@ -20,6 +20,7 @@ requires = ["poetry>=0.12"]
 build-backend = "poetry.masonry.api"
 
 [tool.taskipy.tasks]
+manage = "python webapi/manage.py"
 docs-html = "sphinx-build -b html docs/source docs/build/html"
 docs-epub = "sphinx-build -b epub docs/source docs/build/epub"
 docs-text = "sphinx-build -b text docs/source docs/build/text"

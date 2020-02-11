@@ -39,5 +39,5 @@ WORKDIR /code
 COPY poetry.lock pyproject.toml /code/
 RUN poetry install --no-interaction --no-ansi $(test "$DJANGO_ENV" == production && echo "--no-dev")
 
-# Copy cource code
-COPY . /code
+# Copy source code
+COPY /webapi /code
