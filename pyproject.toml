@@ -5,10 +5,12 @@ description = ""
 authors = ["Aleksandr Alekseev <https://github.com/aalekseevx>", "Danil Doroshin <ddddanil5555@gmail.com>", "Nikolay Rulev <https://github.com/AbsoluteNikola>"]
 
 [tool.poetry.dependencies]
-python = "^3.6"
+python = "~3.7"
 django = "^3.0"
 djangorestframework = "^3.9"
 djoser = "^2.0"
+djangorestframework_simplejwt = "^4.4"
+social-auth-app-django = "^3.1"
 
 [tool.poetry.dev-dependencies]
 sphinx_rtd_theme = "^0.4.3"
