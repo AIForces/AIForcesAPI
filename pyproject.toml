@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "aiforces-api"
-version = "0.1.0"
+version = "0.2.0"
 description = ""
 authors = ["Aleksandr Alekseev <https://github.com/aalekseevx>", "Danil Doroshin <ddddanil5555@gmail.com>", "Nikolay Rulev <https://github.com/AbsoluteNikola>"]
 
@@ -11,6 +11,7 @@ djangorestframework = "^3.9"
 djoser = "^2.0"
 djangorestframework_simplejwt = "^4.4"
 social-auth-app-django = "^3.1"
+psycopg2-binary = "^2.8.4"
 
 [tool.poetry.dev-dependencies]
 sphinx_rtd_theme = "^0.4.3"
@@ -18,12 +19,9 @@ sphinx = "^2.3.1"
 taskipy = "^1.1.2"
 pywatchman = "^1.4"
 
-[build-system]
-requires = ["poetry>=0.12"]
-build-backend = "poetry.masonry.api"
-
 [tool.taskipy.tasks]
 manage = "python webapi/manage.py"
+runserver = "python webapi/manage.py runserver 0.0.0.0:8000"
 docs-html = "sphinx-build -b html docs/source docs/build/html"
 docs-epub = "sphinx-build -b epub docs/source docs/build/epub"
 docs-text = "sphinx-build -b text docs/source docs/build/text"
@@ -31,3 +29,7 @@ docs-man = "sphinx-build -b man docs/source docs/build/man"
 docs-xml = "sphinx-build -b xml docs/source docs/build/xml"
 docs-latex = "sphinx-build -b latex docs/source docs/build/latex"
 docs-latexpdf = "sphinx-build -b latex docs/source docs/build/latexpdf; make -C docs/build/latexpdf"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
