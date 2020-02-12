@@ -5,13 +5,15 @@ User settings
 
 Coding settings
 ^^^^^^^^^^^^^^^
-Stores users preferred language and compiler options.
-Also can save the file template for the in-browser editor.
+Stores a starting template and editor configuration for each of the language
+presets (See :ref:`languages-label`). It is used for the built-in editor and
+other tools.
 
 Privacy settings
 ^^^^^^^^^^^^^^^^
-By default, each field from the metadata can be either public or private.
-Additionally, they can limit the ability of other people to add them into contests.
+The privacy settings control the access to metadata and limit other user's
+actions upon them like adding them into contests. All fields are controlled by
+the groups and permissions (see :ref:`groups-label`).
 
 Endpoints
 ^^^^^^^^^

@@ -3,13 +3,10 @@ User info
 
 .. note:: This section might be moved into a more general article on the User model
 
-This chapter concerns itself about the information that will be associated with any particular user in the application.
-It may not exactly be stored as a column in the DB table but in one way or the other it *is* correlated to a user.
-
 Properties
 ^^^^^^^^^^
 username
-   A unique user identifier. Must be ``^[a-zA-Z0-9_\-=+.,!]{4,20}$``
+   A unique user identifier. Must be `^[a-zA-Z0-9_\-=+.,!]{4,20}$ <https://regex101.com/r/OsZJss/1>`_
 
    A list of reserved usernames includes
     - admin
@@ -31,7 +28,8 @@ email
    May be used as the primary login key.
 
 groups
-   A list of all groups this user is a part of.
+   A list of all groups this user is a part of. Does not include a corresponding
+   ``u\`` group. See :ref:`groups-label`
 
 metadata
    Aggregate property of non-crucial information about the user
@@ -50,14 +48,17 @@ metadata
 score
    Aggregate property of the current score,
    parts required to compute it, and score history.
+   See :ref:`achievement-label`
 
 `settings` and `privacy-settings`
    See :ref:`user-settings-label`
 
+.. _groups-label:
+
 Groups
 ^^^^^^
 Permissions and relations are done through groups. Each object has some groups
-attached to it. For example, a user `coolguy` causes a group `coolguy-friends`
+attached to it. For example, a user `coolguy` causes a group `coolguy-friend`
 to appear. Contests have `contest-participant` and `contest-administrator`
 groups and so on for other entities.
 
@@ -69,19 +70,19 @@ user object. A permission is determined as a union of users and groups that
 have access to this information. To avoid confusion, users are prefixed with
 ``u\`` and groups with ``g\``.
 
-For example, if contents read permissions are as follows::
+For example, a file may have the following permissions::
 
-   [ "u\coolguy", "g\coolguy-friends", "g\coolcontest-participants" ]
+   [ "u\coolguy", "g\coolguy-friend", "g\coolcontest-participant" ]
 
 Any user who matches at least one constraint is granted access to that content.
 
 There is a list of special groups not tied to any particular object.
 
-g\everyone
+g\\everyone
    Makes the described object public. An empty permission array is considered
-   to have `g\everyone` in it.
+   to be identical to `g\everyone`.
 
-g\administrator
+g\\administrator
    If held by a user, grants access to everything regardless of the permissions.
 
 Relations
@@ -122,11 +123,11 @@ Returns: :ref:`user-label`
 
 .. table:: Query variables
 
-   ======================= ==== =========================
+   ======================= ==== ================================================
    Variable                Type Definition
-   ======================= ==== =========================
-   full_score              bool Return the score as a history array (See :ref:`score-label`)
+   ======================= ==== ================================================
+   full_score              bool Return the full achievement object (See :ref:`achievement-label`)
    participating_contests  bool Return the participating contests array
    administrating_contests bool Return the administrating contests array
    friends                 bool Return the friends array
-   ======================= ==== =========================
+   ======================= ==== ================================================
