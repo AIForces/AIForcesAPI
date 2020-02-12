@@ -9,15 +9,15 @@ username
    A unique user identifier. Must be `^[a-zA-Z0-9_\-=+.,!]{4,20}$ <https://regex101.com/r/OsZJss/1>`_
 
    A list of reserved usernames includes
-    - admin
-    - administrator
-    - moderator
-    - current
+   - admin
+   - administrator
+   - moderator
+   - current
 
    .. warning:: List to be expanded
 
 realname
-   User's disclosed name and is shared according tothe user's privacy settings.
+   User's disclosed name and is shared according to the user's privacy settings.
    Is subject to unicode sanitization.
 
 displayname
@@ -34,13 +34,13 @@ groups
 metadata
    Aggregate property of non-crucial information about the user
 
-    - Country
-    - City
-    - Organisation
-    - Gender
-    - Age
-    - Bio
-    - Profile picture
+   - Country
+   - City
+   - Organisation
+   - Gender
+   - Age
+   - Bio
+   - Profile picture
 
    No field is required and the privacy of each field
    is controlled independently in the privacy settings.
