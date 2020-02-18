@@ -13,14 +13,14 @@ Front-end
 ^^^^^^^^^
 All the urls handled by the user have this general shape::
 
-   https://outhosting.com/media/:longidentifier/original_filename.ext
+   https://ourhosting.com/media/:longidentifier/original_filename.ext
 
 This method has several upsides
 
 1. It stays the same for all file types and uses. From images to submissions
    and tasks, everything can be retrieved in the same way.
 2. The identifier could be used in many places throughout the application,
-   since it will uniquely map to a particular file.
+   since it together with the filename will uniquely map to a particular file.
 3. It allows for pseudo-folders. If all filenames are unique and the
    circumstances call for that (for example, a task folder) those files can be
    kept together for ease of access under the same identifier.
@@ -122,38 +122,57 @@ Task uploads
 .. warning:: Consult with the main problemsetting doc :ref:`problemsetting-label`
 
 Task file inspection is the main use for this feature, so it is necessary to
-discuss it in more depth. There is no access to the original source files, but
-only to those that are the result of the task compilation. It should expose
-both required files (like `statement.pdf`) and those listed in the manifest
-file by the uploader. Those files do not have to be in the same fs folder.
+discuss it in more depth. Not all files are exposed, there is a list of
+predetermined files and the uploader can also specify a set of public files.
+This also flattens all the exported files into one folder-like.
 Example::
 
    task-folder
-   ├── MANIFEST
-   ├── check.py
-   ├── statement
-   │   ├── statement.tex
-   │   ├── cat.jpg
-   │   ├── data.csv
-   │   └── statement.pdf
-   ├── viewer
-   │   ├── main.css
-   │   ├── main.html
-   │   └── main.js
-   ├── run.sh
-   └── favicon.ico
+   ├── lib
+   │   ├── olymp.sty
+   │   ├── problem.tex
+   │   └── statements.ftl
+   ├── private
+   ├── problem.yaml
+   ├── public
+   │   ├── change_log.txt
+   │   ├── favicon.ico
+   ├── scripts
+   │   ├── build.sh
+   │   ├── check.sh
+   │   └── validator.sh
+   ├── solutions
+   │   ├── ermolin.cpp
+   │   ├── starkov.cpp
+   │   └── useless.cpp
+   ├── src
+   │   ├── check.py
+   │   ├── test_generator.py
+   │   ├── tron.tex
+   │   └── validator.cpp
+   ├── statements
+   │   ├── eng
+   │   └── rus
+   ├── tests
+   └── visualizer
+      ├── eng
+      │   ├── visualizer-eng.css
+      │   ├── visualizer-eng.html
+      │   └── visualizer-eng.js
+      └── rus
+         ├── visualizer-rus.css
+         ├── visualizer-rus.html
+         └── visualizer-rus.js
 
-   Required file paths:
-   /taskid/run.sh
+   Guaranteed file paths:
    /taskid/statement.pdf
    /taskid/main.css
    /taskid/main.js
    /taskid/main.html
 
-   Paths from manifest:
-   /taskid/check.py
+   Paths from problem.yaml:
+   /taskid/change_log.txt
    /taskid/favicon.ico
-   /taskid/data.csv
 
 Endpoints
 ^^^^^^^^^
