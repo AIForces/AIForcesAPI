@@ -34,3 +34,15 @@ Represents general info about one tournament. (contest may include several inter
    start_time, integer, Start of the tournament (UNIX format).
    tournament_type, string, One of the built-in tournament types. Check the corresponding documentation.
    status, string, "Describes status of the tournament: ""before"", ""in_progress"", ""pending_results"", ""finished""" 
+
+Errors
+^^^^^^
+For every return code >=400 it is guaranteed that the response will contain an
+``error`` field explaining the problem.
+
+.. code:: json
+
+   404 NOT FOUND
+   {
+      "error": "No file with this identifier"
+   }
