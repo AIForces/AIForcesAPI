@@ -7,6 +7,7 @@ AIForces API documentation.
 
    introduction
    media
+   filesystem
    return_objects
    authentication
    user_info
