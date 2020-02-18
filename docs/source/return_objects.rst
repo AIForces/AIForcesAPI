@@ -37,13 +37,12 @@ Represents general info about one tournament. (contest may include several inter
 
 Errors
 ^^^^^^
-For every return code >=400 it is guaranteed that the response would either be
-blanc, or have the following structure
+For every return code >=400 it is guaranteed that the response will contain an
+``error`` field explaining the problem.
 
 .. code:: json
 
+   404 NOT FOUND
    {
-      "code": 404,
-      "name": "Not Found",
-      "description": "No file with this identifier"
+      "error": "No file with this identifier"
    }
