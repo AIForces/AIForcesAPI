@@ -1,16 +1,16 @@
 .. _media-api-label:
 
 Media API
----------
+*********
 
 Overview
-^^^^^^^^
+========
 The Media API is designed to fetch user uploaded content in a predictable,
 understandable and a secure way. It is also an abstraction layer between
 the user and the internal storage scheme used in the application.
 
 Front-end
-^^^^^^^^^
+=========
 All the urls handled by the user have this general shape::
 
    https://ourhosting.com/media/:longidentifier/original_filename.ext
@@ -28,12 +28,12 @@ This method has several upsides
    identify the file later.
 
 Back-end
-^^^^^^^^
+========
 There are basically four parts to the inner workings of this API. The check,
 the database, the file server and the delivery service.
 
 The check
-"""""""""
+---------
 Before even trying to find the file, the api has to check whether the user has
 the rights to download that file. Those are stored in a separate column in the
 lookup database. See :ref:`permissions-label`.
@@ -45,26 +45,26 @@ lookup database. See :ref:`permissions-label`.
       Public files, however, should be set to cache.
 
 The database
-""""""""""""
+------------
 Each row has the identifier + the original filename as the primary key. For it,
 it stores the fs path to the file (including the sharding key) and read and
 modify permissions.
 
 The file server
-"""""""""""""""
+---------------
 To maximize efficiency, multiple SMB servers are sharded. They are all mounted
 in the content delivery container, and all have the same top-level structure.
 File system structure is described here :ref:`filesystem-label`.
 
 The delivery
-""""""""""""
+------------
 It is logical to use the `XSendfile <https://www.nginx.com/resources/wiki/start/topics/examples/xsendfile/>`_
 feature. Since the file servers are mounted at some path to the nginx container
 the sharding can be done in the database step, just by specifying a different
 top level folder, corresponding to an SMB server instance.
 
 Uploading
-^^^^^^^^^
+---------
 No file should be able to be uploaded directly, but rather through other more
 specific endpoints (like a new task, or a new submission). Those endpoints
 should return a 201 CREATED AT response with a corresponding
@@ -83,7 +83,7 @@ For a folder-like, all file contents should be concatenated in order to compute
 the hash.
 
 Folder-likes
-^^^^^^^^^^^^
+============
 
 A folder-like upload is just a grouping feature for the end user. Some actions
 require multiple files uploaded at once (case study: tasks). In this case it is
@@ -96,7 +96,7 @@ leaving the filenames to differentiate them.
    After that, they may have completely unrelated fs paths mapped to them.
 
 Migration
-"""""""""
+---------
 Folder-likes are not incompatible with regular file uploads. They only add a
 check on the provided filename, which should be done anyways. For example if
 a regular file /id1/abc.txt is registered, the url /id1/def.txt should not
@@ -117,7 +117,7 @@ Mixing both styles is acceptable within the same database which makes migrating
 from one to another easy.
 
 Task uploads
-""""""""""""
+------------
 
 .. warning:: Consult with the main problemsetting doc :ref:`problemsetting-label`
 
@@ -164,22 +164,21 @@ Example::
          ├── visualizer-rus.html
          └── visualizer-rus.js
 
-   Guaranteed file paths:
-   /taskid/statement.pdf
+   File paths:
+   /taskid/statement-eng.pdf
    /taskid/main.css
    /taskid/main.js
    /taskid/main.html
-
-   Paths from problem.yaml:
    /taskid/change_log.txt
    /taskid/favicon.ico
 
 Endpoints
-^^^^^^^^^
+=========
 
 There is only one endpoint available
 
 GET /media/:longid/:filename
+----------------------------
    .. table:: Parameters
 
       ============= ============================================================

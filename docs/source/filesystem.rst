@@ -27,7 +27,7 @@ In the ``tasks`` folder, each task is contained in a folder, named as
 ``taskshortname-longidentifier``. There are several files in each folder.
 Example::
 
-   /smb3/tasks/Tron4000-3ecf001753640fa58a06d5515fa610388a4f1722647d5f9f8abe76e4ed8a61f9/statements/eng/statement.pdf
+   /smb3/tasks/Tron4000-3ecf001753640fa58a06d5515fa610388a4f1722647d5f9f8abe76e4ed8a61f9/statements/eng/statement-eng.pdf
    /smb3/tasks/Tron4000-3ecf001753640fa58a06d5515fa610388a4f1722647d5f9f8abe76e4ed8a61f9/public/data.csv
    /smb3/tasks/Tron4000-3ecf001753640fa58a06d5515fa610388a4f1722647d5f9f8abe76e4ed8a61f9/public/change_log.txt
 
