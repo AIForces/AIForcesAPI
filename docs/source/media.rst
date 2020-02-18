@@ -206,7 +206,7 @@ GET /media/:longid/:filename
       ``:filename`` complies to `^[a-zA-Z0-9_\-()\[\]{}!@#$%^&*:,.?]{3,}\.[a-z]{1,16}$ <https://regex101.com/r/O89x4V/1>`_
       ============= ============================================================
 
-   .. table:: Return codes. See :ref:`return-object-label`
+   .. table:: Return codes. See :ref:`error-response-label`
 
       ===== ====================================================================
       Code  Description
@@ -231,3 +231,6 @@ GET /media/:longid/:filename
 
       GET /media/1b27cf60245964a7e5a7ce09030cc63d9909120e9d2391219e464469c6f2176a/answers.txt
       404 NOT FOUND
+      {
+         "error": "No file with this identifier"
+      }
