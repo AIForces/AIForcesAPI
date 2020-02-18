@@ -24,7 +24,7 @@ This method has several upsides
 3. It allows for pseudo-folders. If all filenames are unique and the
    circumstances call for that (for example, a task folder) those files can be
    kept together for ease of access under the same identifier.
-4. It preserves the orignal filenames, which helps the user who uploaded it to
+4. It preserves the original filenames, which helps the user who uploaded it to
    identify the file later.
 
 Back-end
@@ -69,7 +69,7 @@ No file should be able to be uploaded directly, but rather through other more
 specific endpoints (like a new task, or a new submission). Those endpoints
 should return a 201 CREATED AT response with a corresponding
 ``/media/:longidentifier/filename.ext`` uri. For a folder-like upload, the
-endpoint should retuen a uri corresponding to a manifest file, or any other
+endpoint should return a uri corresponding to a manifest file, or any other
 file deemed to be the most important. If there is none, it can return a link to
 any file in the folder.
 
@@ -124,7 +124,7 @@ Task uploads
 Task file inspection is the main use for this feature, so it is necessary to
 discuss it in more depth. There is no access to the original source files, but
 only to those that are the result of the task compilation. It should expose
-both required files (like `statement.pdf`) and those listed in the maniefst
+both required files (like `statement.pdf`) and those listed in the manifest
 file by the uploader. Those files do not have to be in the same fs folder.
 Example::
 
@@ -177,7 +177,7 @@ GET /media/:longid/:filename
       ===== ====================================================================
       200   Request successful, file in the body
       301   This file is considered to be replaced by another
-      401   User must log in before acessing this file
+      401   User must log in before accessing this file
       403   user does not have sufficient permissions to access this file
       404   File does not exist or the user does not have sufficient permissions
       ===== ====================================================================
