@@ -47,25 +47,9 @@ Endpoints
    Response
       gg
 
-[PUT] /contests/:contest/tournaments/:tournament
-------------------------------------------------
-   Returns
-      ``200 (OK)``
-
-   Arguments
-      .. table::
-
-         ============= ================ ======================= ==============================
-         Argument      Format           Default                 Description
-             
-         ============= ================ ======================= ==============================
-    
-   Example
-      .. code-block:: bash
-
-         gg
-   Response
-      gg
+[PATCH] /contests/:contest/confirm
+-----------------------------------
+   Publishes results of the currrent tournament.
 
 [PATCH] /contests/:contest/tournaments/:tournament
 --------------------------------------------------

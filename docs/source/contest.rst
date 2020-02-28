@@ -317,8 +317,71 @@ Endpoints
 
 [PATCH] /contests/:contest/participants
 ---------------------------------------
-   Manage contest's participants
+  Update participant's list
+
+  Example query:
+
+  .. code-block:: json
+
+        {
+            "register": {
+                "dddanil"
+            },
+
+            "unregister": {
+                "aalekseevx"
+            }
+        }
+
+
+[PUT] /contests/:contest/participants
+---------------------------------------
+   Replace contest's participants with given ones.
+
+   Example query:
+
+    .. code-block:: json
+
+        {
+            "meshanya",
+            "aalekseev",
+            "dddanil"
+        }
 
 [PATCH] /contests/:contest/register
----------------------------------------
+-----------------------------------
    Add yourself to participants, if registration is open.
+
+
+[PATCH] /contests/:contest/confirm
+-----------------------------------
+   Confirms and publishes results of all tournaments inside the contest.
+   Following process may take place:
+
+   - Rating is recalculated
+   - Problem is addeded to the archive
+   - Submissions are made public
+
+[PATCH] /contests/:contest/rejudge
+----------------------------------
+    Rejudges everything inside the contest.
+    You may select what to rejudge as in the example. Intersection of all
+    filters will be rejudged
+
+    .. code-block:: json
+
+        {
+            "problems": [
+                "A",
+                "B"
+            ],
+            "tournaments": [
+                5,
+                7,
+            ],
+            "sandbox": true,
+            "challenges": [
+                112,
+                126
+            ]
+        }
