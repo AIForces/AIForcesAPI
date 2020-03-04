@@ -6,6 +6,9 @@ case "$1" in
   migrate )
     docker-compose exec django.api python manage.py migrate --noinput
     ;;
+  test )
+    docker-compose exec django.api pytest
+    ;;
   stop )
     docker-compose down -v
 esac
