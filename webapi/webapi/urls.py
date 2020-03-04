@@ -14,6 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.conf import settings
 from django.urls import path, re_path, include
 
 urlpatterns = [
@@ -21,3 +22,8 @@ urlpatterns = [
     re_path('^auth/', include('djoser.urls')),
     re_path('^auth/', include('djoser.urls.jwt')),
 ]
+
+if settings.DEBUG:
+    urlpatterns += [
+        path('coverage/', include('coverage_viewer.urls'))
+    ]

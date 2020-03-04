@@ -65,6 +65,8 @@ SIMPLE_JWT = {
 
 ROOT_URLCONF = 'webapi.urls'
 
+PROJECT_PATH = os.path.abspath(os.path.dirname(__name__))
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
