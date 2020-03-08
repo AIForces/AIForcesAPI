@@ -6,6 +6,8 @@ AIForces API documentation.
    :caption: Contents:
 
    introduction
+   media
+   filesystem
    return_objects
    authentication
    user_info

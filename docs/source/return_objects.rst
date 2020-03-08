@@ -295,3 +295,15 @@ Example
       "participants_number": 1000,
       "achieved_at": "2019-01-24T23:02:40+00:00"
    }
+
+Errors
+^^^^^^
+For every return code >=400 it is guaranteed that the response will contain an
+``error`` field explaining the problem.
+
+.. code:: json
+
+   404 NOT FOUND
+   {
+      "error": "No file with this identifier"
+   }
