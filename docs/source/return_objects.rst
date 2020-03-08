@@ -240,7 +240,7 @@ Example
           "short_name": "chess",
           "name": "Chess",
           "access": "public",
-          "description": "Classical indian game. Played on a checkered board with 64 squares arranged in an 8×8 grid."
+          "description": "Classical indian game. Played on a checkered board with 64 squares arranged in an 8×8 grid.",
           "statements": "/media/tron/statements.pdf",
           "visualizer": {
               "html": "/media/tron/visualizer.html",

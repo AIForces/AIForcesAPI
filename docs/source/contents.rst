@@ -16,6 +16,7 @@ AIForces API documentation.
    invocation
    contest
    sandbox
+   debugger
    tournament
    submission
    problem
