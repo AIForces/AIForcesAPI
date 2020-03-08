@@ -96,7 +96,6 @@ Endpoints
                 -X GET \
                 -G \
                 -d show_hidden=false \
-                -d fields=id \
                 -d fields=name \
                 -d limit=2 \
                 -d sort=-start_time \
@@ -105,12 +104,10 @@ Endpoints
 
             [
                 {
-                    "id": 0,
                     "name": "New contest."
                 },
 
                 {
-                    "id": 1,
                     "name": "Old contest."
                 }
             ]
@@ -263,7 +260,7 @@ Endpoints
          ============== ================ ============================ ==============================
          Argument       Format           Default                      Description
 
-         fields        list of strings  All :ref:`achievement-label` Fields, which will be retrieved. 
+         fields         list of strings  All :ref:`achievement-label` Fields, which will be retrieved. 
                                          fields                       Must be a subset of :ref:`achievement-label` object fields.
          filter         list of strings  Filtering is not used        If present, only contests with given identifiers
                                                                       will be in the response.

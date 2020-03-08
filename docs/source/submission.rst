@@ -48,57 +48,76 @@ Endpoints
 
          ============= ================ ======================= ==============================
          Argument      Format           Default                 Description
-             
+
+         fields        list of strings  :ref:`submission-label` Fields, which will be retrieved.
+                                        fields      
+                                                                Must be a subset of :ref:`submission-label` fields
+         filter        list of strings  Filtering is not used   If present, only submissions with given identifiers will be in the     
+                                                                response.
+         limit         integer          20                      Maximum number of recources, which will be returned.
+         offset        integer          0                       Index of first resource, which should be returned
+                                                                (used for pagination).
+         sort          sort             -submitted_at           One of the :ref:`submission-label` object fields,
+                                                                which should be used
+                                                                for sorting the items. Order is **ascending**, to reverse
+                                                                the order, use ``-`` at the begining of the string.
          ============= ================ ======================= ==============================
     
-   Example
-      .. code-block:: bash
+   .. Example
+   ..    .. code-block:: bash
 
-         gg
-   Response
-      gg
+   ..       gg
+   .. Response
+   ..    gg
 
 
 [POST] /contests/:contest/submissions
 -------------------------------------
    Returns
-      ``200 (OK)``
+      ID of the new submission and mapped pretest challenges.
 
    Arguments
       .. table::
 
          ============= ================ ======================= ==============================
          Argument      Format           Default                 Description
-             
+         name          string           "Submission {ID}"       Short name
+         access        string           private                 Either ``private``, ``public`` and ``protected``.
+         problem       string           No default              Problem literal, which solution is presented
+         source        string           No default              Solution
+         lang          string           No default              Identifier of the programming language.
+                                                                Read the corresponding documentation
          ============= ================ ======================= ==============================
 
-   Example
-      .. code-block:: bash
+   .. Example
+   ..    .. code-block:: bash
 
-         gg
-   Response
-      gg
+   ..       gg
+   .. Response
+   ..    gg
 
 
 [GET] /contests/:contest/submissions/:submission
 ------------------------------------------------
    Returns
-      ``200 (OK)``
+      :ref:`submission-label` object
 
    Arguments
       .. table::
 
          ============= ================ ======================= ==============================
          Argument      Format           Default                 Description
-             
+         fields        list of strings  :ref:`submission-label` Fields, which will be retrieved.
+                                        fields      
+                                                                Must be a subset of :ref:`contest-label` fields
          ============= ================ ======================= ==============================
 
-   Example
-      .. code-block:: bash
+   .. Example
+   ..    .. code-block:: bash
 
-         gg
-   Response
-      gg
+   ..       gg
+   .. Response
+   ..    gg
 
 [DELETE] /contests/:contest/submissions/:submission
 ---------------------------------------------------
@@ -117,4 +136,4 @@ Endpoints
 
          curl https://api.aiforces.com/v1/contests/my-contest/submissions/121 -X DELETE
    Response
-      gg
+      ``200 (OK)``

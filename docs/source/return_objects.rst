@@ -95,6 +95,7 @@ Represents general info about one tournament.
    ================ ======== ===================================================
    Field            Format   Description
    ================ ======== ===================================================
+   id               integer  Tournament ID.
    name             string   Name of the tournament. May be localized
    hidden           boolean  If true, tournament is not visible for public
    start_time       integer  Start of the tournament (ISO 8601 format)
@@ -134,6 +135,7 @@ Represnts one code submission.
    ============= ======== ======================================================
    Field         Format   Description
    ============= ======== ======================================================
+   id            integer  Submission ID
    name          string   Short name (may be given by the user to identify submissions in a quick way)
    user          string   Username of the person, who made the submission
    contest       string   Contest the submission is attached to.
@@ -157,7 +159,7 @@ Example
           "name": "tron_megasolver2000",
           "source_file": "/media/submission_278.py",
           "lang": "pypy3",
-          "submitted_at": "2019-01-24T23:02:40+00:00"
+          "submitted_at": "2019-01-24T23:02:40+00:00",
           "pretest": [109, 110, 111]
       }
 
