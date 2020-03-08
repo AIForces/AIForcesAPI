@@ -1,8 +1,9 @@
 Problem
 *******
 
-General information
-===================
+**General information** about problems in AIForces in represented in Problemsetting_, here only API endpoints are described.
+
+.. _Problemsetting: https://aiforces.readthedocs.io/en/docs/problemsetting.html
 
 Endpoints
 =========
@@ -50,12 +51,12 @@ Endpoints
             [
                 {
                     "name": "go",
-                    "description": "Abstract strategy board game for two players, in which the aim is to surround more territory than the opponent"
+                    "description": "Abstract strategy board game"
                 },
 
                 {
                     "name": "chess",
-                    "description": "Classical indian game. Played on a checkered board with 64 squares arranged in an 8×8 grid."
+                    "description": "Classical indian game"
                 }
             ]
 
@@ -74,7 +75,7 @@ Endpoints
          Argument      Format           Default                  Description
 
          fields        list of strings  All :ref:`problem-label` fields  Fields, which will be retrieved.
-                                                                 Must be a subset of :ref:`problem-label` fields
+                                        fields                   Must be a subset of :ref:`problem-label` fields
          ============= ================ ======================== ==============================
 
    Example
@@ -100,21 +101,45 @@ Endpoints
 
 [POST] /problems
 ----------------
-   Creates a problem. If short-name is not given, it will be automatically generated using Display name and returned in Response.
+   Creates a problem. If short-name is not given, it will be automatically generated using Display name and returned in 
+
+   Arguments
+      .. table::
+
+         ==================== ==================== =========================================
+         Field                Format               Description
+         ==================== ==================== =========================================
+         short_name           string               Problem unique short name.
+         name                 string               Problem name. May be localized.
+         access               string               Problem access modifier. Either ``private``, ``public`` or ``protected``.
+         description          string               Description of the problem.
+         owners               array                Owners of the contest.
+         authors              object (dict)        Authors of the contest.
+         minimal_players      integer              Minimal number of players in one challenge.
+         maximal_players      integer              Maximal number of players in one challenge.
+         time-limit           integer              Per move time limit in microseconds
+         memory-limit         integer              RAM limit in bytes.              
+         ==================== ==================== =========================================
+
+   Returns
+      ``200 OK``
 
 [PUT] /problems/:problem-short-name
 -----------------------------------
-   Create problem.
+   Creates problem. Similar to POST
 
 [PATCH] /problems/:problem-short-name
 -------------------------------------
-   Changes problem's settings.
+   Changes problem's settings. Args similar to POST, but optional.
 
 [GET] /problems/tests
 ---------------------
+   Returns info about tests in the way, the way, described in ``Problemsetting/Tests/Configuration file``.
+   Instead of filenames, returns corresponding MediaAPI links.
 
 [GET] /problems/solutions
 -------------------------
+   Returns array of ``submission-label``, created from the problem inner solutions.
 
 [DELETE] /problems/:problem-short-name
 --------------------------------------
@@ -160,8 +185,8 @@ Endpoints
 -----------------------------------------
    Changes git settings for the problem.
 
-[POST] /problems/:problem-short-name/git/fetch
-----------------------------------------------
+[PATCH] /problems/:problem-short-name/git/fetch
+-----------------------------------------------
    Request fetching from the origin.
 
 [GET] /problems/:problem-short-name/git/log

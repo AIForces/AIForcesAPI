@@ -221,14 +221,13 @@ Represents one problem.
    name                 string               Problem name. May be localized.
    access               string               Problem access modifier. Either ``private``, ``public`` or ``protected``.
    description          string               Description of the problem. May be localized.
-   difficulty           integer from 1 to 5  Estimated difficulty. 5 is the most difficult.
    statements           string               URL, which can be used to download statements pdf. Read Media docs. May be localized.
    visualizer           object (dict)        Contains URL of visualizer files: html, css, js. Read Media docs. May be localized.
    owners               array                Owners of the contest.
    authors              object (dict)        Authors of the contest.
    minimal_players      integer              Minimal number of players in one challenge.
    maximal_players      integer              Maximal number of players in one challenge.
-   time-limit           integer              Per move time limit in microsends
+   time-limit           integer              Per move time limit in microseconds
    memory-limit         integer              RAM limit in bytes.              
    created_at           string               Time, problem was created. (ISO 8601 format)
    updated_at           string               Time, problem was last updated. (ISO 8601 format)
@@ -242,7 +241,6 @@ Example
           "name": "Chess",
           "access": "public",
           "description": "Classical indian game. Played on a checkered board with 64 squares arranged in an 8×8 grid."
-          "difficulty": 4,
           "statements": "/media/tron/statements.pdf",
           "visualizer": {
               "html": "/media/tron/visualizer.html",
