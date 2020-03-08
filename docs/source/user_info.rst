@@ -9,11 +9,11 @@ username
    A unique user identifier. Must be `^[a-zA-Z0-9_\-=+.,!]{4,20}$ <https://regex101.com/r/OsZJss/1>`_
 
    A list of reserved usernames includes
-    - admin
-    - administrator
-    - current
-    - everyone
-    - moderator
+   - admin
+   - administrator
+   - current
+   - everyone
+   - moderator
 
    .. warning:: List to be expanded
 
@@ -60,16 +60,14 @@ Groups
 ^^^^^^
 Permissions and relations are done through groups. Each object has some groups
 attached to it. For example, a user `coolguy` causes a group `coolguy-friend`
-to appear. Contests have `contest-participant` and `contest-administrator`
+to appear. Contests have `contest-participant` and `contest-manager`
 groups and so on for other entities.
 
 Permissions
 """""""""""
-Both the username and the group list are encoded in the JWT token so that
-services could determine permissions without accessing the database for the
-user object. A permission is determined as a union of users and groups that
-have access to this information. To avoid confusion, users are prefixed with
-``u\`` and groups with ``g\``.
+A permission is represented as a union of users and groups thathave access to
+this information. To avoid confusion, users are prefixed with ``u\`` and groups
+with ``g\``.
 
 For example, a file may have the following permissions::
 
