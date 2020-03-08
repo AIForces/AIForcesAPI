@@ -12,7 +12,6 @@ Represents general info about one competition.
    ============= ===================== ===========================================
    Field         Format                Description
    ============= ===================== ===========================================
-   id            integer               Contest ID
    short_name    string                Contest unique short name
    name          string                Name of the contest. May be localized
    official      boolean               If contest is official, it is approved by admins
@@ -22,7 +21,6 @@ Represents general info about one competition.
    competetive   boolean               If the contest is competetive, submissions are ``private`` by default,
                                        otherwise they are ``public``.
    description   string                Description of the contest. May be localized
-   difficulty    integer from 1 to 5   Estimated difficulty. 5 is the most difficult
    start_time    integer               Start of the contest (ISO 8601 format)
    duration      integer               Duration of contest in seconds. `-1` if contest is infinite.
    status        string                Describes status of the contest
@@ -45,7 +43,6 @@ Example
    .. code-block:: json
 
       {
-          "id": 105,
           "short_name": "tron_contest",
           "name": "First awesome AIForces contest.",
           "official": true,
@@ -54,7 +51,6 @@ Example
           "rated": true,
           "competetive": true,
           "description": "Lorem ipsum dolor sit amet.",
-          "difficulty": 1,
           "start_time": "2019-01-24T23:02:40+00:00",
           "duration": 86400,
           "status": "finished",
@@ -75,15 +71,9 @@ Example
                   "300iq"
               ]
           },
-          "managers": {
-              "read": [
-                  "tester_meshanya",
-                  "tester_sanya",
-              ],
-              "write": [
-                  "problemwriter_anton"
-              ]
-          },
+          "managers": [
+              "problemwriter_anton"
+          ],
           "problems": {
               "A": "tron",
               "B": "chess",
@@ -105,7 +95,6 @@ Represents general info about one tournament.
    ================ ======== ===================================================
    Field            Format   Description
    ================ ======== ===================================================
-   id               integer  Tournament ID
    name             string   Name of the tournament. May be localized
    hidden           boolean  If true, tournament is not visible for public
    start_time       integer  Start of the tournament (ISO 8601 format)
@@ -124,7 +113,6 @@ Example
    .. code-block:: json
 
       {
-          "id": 123,
           "name": "first blood",
           "hidden": false,
           "start_time": "2019-01-24T23:02:40+00:00",
@@ -146,13 +134,12 @@ Represnts one code submission.
    ============= ======== ======================================================
    Field         Format   Description
    ============= ======== ======================================================
-   id            integer  Submission ID
+   name          string   Short name (may be given by the user to identify submissions in a quick way)
    user          string   Username of the person, who made the submission
    contest       string   Contest the submission is attached to.
    access        string   Submission access modifier. Either ``private``, ``public`` and ``protected``.
    problem       string   Problem, which solution is presented
-   name          string   Short name (may be given by the user to identify submissions in a quick way)
-   source_file   string   URL, which can be used to download the source. Read Media docs.
+   source_file   string   URL, which can be used to download the source. Read :ref:`media-api-label`. 
    lang          string   Identifier of the programming language. Read the corresponding documentation
    submitted_at  string   Submission time (ISO 8601 format)
    pretest       list     List of challenge ids - submission pretests.
@@ -163,7 +150,6 @@ Example
    .. code-block:: json
 
       {
-          "id": 278,
           "user": "patrick",
           "contest": "tron_test_contest",
           "access": "public",
@@ -187,7 +173,6 @@ Represents one user's participation score in the given contest
    ==================== ============== =========================================
    Field                Format         Description
    ==================== ============== =========================================
-   id                   integer        Achievement ID
    contest              string         Contest short name
    rating_before        integer        Rating before the contest
    rating_after         integer        Rating after the contest
@@ -203,7 +188,6 @@ Example
    .. code-block:: json
 
       {
-          "id": 105,
           "contest": "tron_contest",
           "rating_before": 1500,
           "rating_after": 1549,
@@ -231,7 +215,6 @@ Represents one problem.
    ==================== ==================== =========================================
    Field                Format               Description
    ==================== ==================== =========================================
-   id                   integer              Problem ID.
    short_name           string               Problem unique short name.
    name                 string               Problem name. May be localized.
    access               string               Problem access modifier. Either ``private``, ``public`` or ``protected``.
@@ -239,7 +222,7 @@ Represents one problem.
    difficulty           integer from 1 to 5  Estimated difficulty. 5 is the most difficult.
    statements           string               URL, which can be used to download statements pdf. Read Media docs. May be localized.
    visualizer           object (dict)        Contains URL of visualizer files: html, css, js. Read Media docs. May be localized.
-   managers             object (dict)        Managers of the contest.
+   owners               array                Owners of the contest.
    authors              object (dict)        Authors of the contest.
    minimal_players      integer              Minimal number of players in one challenge.
    maximal_players      integer              Maximal number of players in one challenge.
@@ -253,7 +236,6 @@ Example
    .. code-block:: json
 
       {
-          "id": 190,
           "short_name": "chess",
           "name": "Chess",
           "access": "public",
@@ -280,15 +262,9 @@ Example
                   "300iq"
               ]
           },
-          "managers": {
-              "read": [
-                  "tester_meshanya",
-                  "tester_sanya",
-              ],
-              "write": [
-                  "problemwriter_anton"
-              ]
-          },
+          "owners": [
+              "problemwriter_anton"
+          ],
           "minimal_players": 2,
           "maximal_players": 2,
       }

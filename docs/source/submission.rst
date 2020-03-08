@@ -100,48 +100,6 @@ Endpoints
    Response
       gg
 
-
-[PUT] /contests/:contest/submissions/:submission
-------------------------------------------------
-   Returns
-      ``200 (OK)``
-
-   Arguments
-      .. table::
-
-         ============= ================ ======================= ==============================
-         Argument      Format           Default                 Description
-             
-         ============= ================ ======================= ==============================
-
-   Example
-      .. code-block:: bash
-
-         gg
-   Response
-      gg
-
-
-[PATCH] /contests/:contest/submissions/:submission
---------------------------------------------------
-   Returns
-      ``200 (OK)``
-
-   Arguments
-      .. table::
-
-         ============= ================ ======================= ==============================
-         Argument      Format           Default                 Description
-             
-         ============= ================ ======================= ==============================
-
-   Example
-      .. code-block:: bash
-
-         gg
-   Response
-      gg
-
 [DELETE] /contests/:contest/submissions/:submission
 ---------------------------------------------------
    Deletes the submission, only for managers of the contest.

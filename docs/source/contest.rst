@@ -7,17 +7,17 @@ General information
 Official contests
 -----------------
 
-Contest is the main event, happening in AIForces. This is a competition, which consist of several
-problems and usually lasts for number of days.
-If the contest is official (approved by AIForces admins), problems **must not** being used or known before.
-Also, problems should be kept in secret. However, every person can create contest for his private purposes or for 
+Contest is the main event happening in AIForces. This is a competition which consists of several
+problems and usually lasts for a number of days.
+If the contest is official (approved by AIForces admins), problems **must not** be used or known before.
+Also, problems should be kept in secret. However, every person can create a contest for their private purposes or for 
 educational purposes.
 
-Incompetetive contests
+Uncompetetive contests
 ----------------------
 
 Some contests may be created for research or educational purposes and the participants are not
-going to compete with each other. They are called incompetetive and all submisssions made in the contest
+going to compete with each other. They are called Uncompetetive and all submisssions made in the contest
 are ``public``.
 
 Infinite contest and Problem archive
@@ -203,7 +203,7 @@ Endpoints
 
 [POST] /contests
 ----------------
-   Creates new problem. If short-name is not given, it will be automatically generated using Display name and returned in Response.
+   Creates new contest. If short-name is not given, it will be automatically generated using Display name and returned in Response.
 
 [PATCH] /contests/:contest-short-name
 -------------------------------------
@@ -263,7 +263,7 @@ Endpoints
          ============== ================ ============================ ==============================
          Argument       Format           Default                      Description
 
-         fields.        list of strings  All :ref:`achievement-label` Fields, which will be retrieved. 
+         fields        list of strings  All :ref:`achievement-label` Fields, which will be retrieved. 
                                          fields                       Must be a subset of :ref:`achievement-label` object fields.
          filter         list of strings  Filtering is not used        If present, only contests with given identifiers
                                                                       will be in the response.
@@ -325,7 +325,7 @@ Endpoints
 
         {
             "register": {
-                "dddanil"
+                "ddddanil"
             },
 
             "unregister": {
@@ -345,7 +345,7 @@ Endpoints
         {
             "meshanya",
             "aalekseev",
-            "dddanil"
+            "ddddanil"
         }
 
 [PATCH] /contests/:contest/register
