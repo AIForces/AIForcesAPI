@@ -9,6 +9,7 @@ username
    A unique user identifier. Must be `^[a-zA-Z0-9_\-=+.,!]{4,20}$ <https://regex101.com/r/OsZJss/1>`_
 
    A list of reserved usernames includes
+
    - admin
    - administrator
    - current
