@@ -108,6 +108,22 @@ Friends
    before the other person gets added to the friends list. Each user has their
    own ``-friend`` group.
 
+.. _user-settings-label:
+
+User settings
+^^^^^^^^^^^^^
+
+Coding settings
+"""""""""""""""
+Stores users preferred language and compiler options.
+Also can save the file template for the in-browser editor.
+
+Privacy settings
+""""""""""""""""
+By default, each field from the metadata can be either public or private.
+Additionally, they can limit the ability of other people to add them into contests.
+
+
 Endpoints
 ^^^^^^^^^
 As per Djoser, there are some basic endpoints exposed.
@@ -130,4 +146,10 @@ Returns: :ref:`user-label`
    participating_contests  bool Return the participating contests array
    administrating_contests bool Return the administrating contests array
    friends                 bool Return the friends array
-   ======================= ==== ================================================
+   ======================= ==== =========================
+
+GET PUT PATCH /users/me/settings
+   Access to the account and privacy settings
+
+GET PUT PATCH /users/me/templates?lang=*language*
+   Change a coding template for a particular language
