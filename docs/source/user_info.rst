@@ -9,10 +9,11 @@ username
    A unique user identifier. Must be `^[a-zA-Z0-9_\-=+.,!]{4,20}$ <https://regex101.com/r/OsZJss/1>`_
 
    A list of reserved usernames includes
-   - admin
-   - administrator
-   - moderator
-   - current
+    - admin
+    - administrator
+    - current
+    - everyone
+    - moderator
 
    .. warning:: List to be expanded
 
@@ -88,14 +89,14 @@ g\\administrator
 Relations
 ^^^^^^^^^
 Tasks
-   Each task is owned by a particular user - its author.
-   They can set the use and read permissions. Use permission lets that task be
-   used in a contest. Read permissions grants access to the source files and
-   lets users fork that task.
+   Each task has an owner group. Owners have the permission to edit source code
+   directly. They also can set the access permission. Access permission lets
+   that task be used in a contest. It also grants access to the source files
+   and lets users fork that task.
 
 Contests
    Each user can own, administrate, participate in and finish contests.
-   Each contest has a ``-participant`` and a ``-administrator`` groups, granting
+   Each contest has a ``-participant`` and a ``-manager`` groups, granting
    them access to different actions on the contest.
 
 Submissions
@@ -145,8 +146,9 @@ Returns: :ref:`user-label`
    full_score              bool Return the full achievement object (See :ref:`achievement-label`)
    participating_contests  bool Return the participating contests array
    administrating_contests bool Return the administrating contests array
+   owned_problems          bool List of all the tasks owned by the user
    friends                 bool Return the friends array
-   ======================= ==== =========================
+   ======================= ==== ================================================
 
 GET PUT PATCH /users/me/settings
    Access to the account and privacy settings

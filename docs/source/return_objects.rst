@@ -124,18 +124,21 @@ User
 ^^^^
 .. table:: User object
 
-   ======================= ==================== =================================================
-   Field                   Format               Description
-   ======================= ==================== =================================================
-   username                string               Unique username
-   displayname             string               Display name
-   groups                  array[string]        User groups
-   score                   integer/array [#f1]_ | *integer* - a single score
-                                                | *array* - score history array (See :ref:`achievement-label`)
-   profile                 object               | Metadata fields.
-                                                | Their quantity depends on the privacy settings of the user.
-                                                | This field also includes the email and the realname
-   ======================= ==================== =================================================
+   ======================= ========================= ===========================
+   Field                   Format                    Description
+   ======================= ========================= ===========================
+   username                string                    Unique username
+   displayname             string                    Display name
+   score                   integer/array [#f1]_      | *integer* - a single score
+                                                     | *array* - score history array (See :ref:`achievement-label`)
+   profile                 object                    | Metadata fields.
+                                                     | Their quantity depends on the privacy settings of the user.
+                                                     | This field also includes the email and the realname
+   participating_contests  array[contest_id]*        List of all contests the user has participated in
+   managed_contests        array[contest_id]*        List of all contests the user has priviledged access to
+   owned_problems          array[problem_shortname]* List of all the tasks owned by the user
+   friends                 array[username]*          List of all the friends the user has
+   ======================= ========================= ===========================
 
 .. [#f1] The type of object you receive depends on the query parameters.
 
@@ -148,7 +151,6 @@ Simple object:
    {
       "username": "coolguy",
       "displayname": "The coolest guy ever 笑",
-      "groups": [ "g\anotherguy-friend", "g\awesomecontest-participant", "g\nicecontest-administrator" ],
       "score": 1336,
       "profile": {
          "profile-picture": "https://ourhosting.lol/media/1234beef/coolguy.png"
@@ -162,13 +164,6 @@ Complex object:
    {
       "username": "SuperBoi",
       "displayname": "nеvеr gоnnа givе уоu uр",
-      "groups": [
-         "g\entry-participant",
-         "g\easy-participant",
-         "g\tron1000-participant",
-         "g\my_playground-administrator",
-         "g\PiccoloX-friend"
-      ],
       "score": [
          {
             "id": 105,
@@ -211,7 +206,11 @@ Complex object:
          "gender": "Male",
          "organisation": "Junior High",
          "profile-picture": "https://ourhosting.lol/media/abcdead1/hot_girls.jpg"
-      }
+      },
+      "participating_contests": [ "entry", "easy", "tron1000" ],
+      "managed_contests": [ "my_playground" ],
+      "owned_problems": [ "SoMuchMoney" ],
+      "friends": [ "PiccoloX" ]
    }
 
 
