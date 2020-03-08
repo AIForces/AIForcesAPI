@@ -11,7 +11,6 @@ AIForces API documentation.
    return_objects
    authentication
    user_info
-   user_settings
    challenge
    invocation
    contest
