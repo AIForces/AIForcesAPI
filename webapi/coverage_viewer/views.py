@@ -1,6 +1,7 @@
 from django.http.response import HttpResponse, HttpResponseNotFound
 from django.core.files.storage import FileSystemStorage
 from django.conf import settings
+from django.shortcuts import redirect
 import mimetypes
 
 def coverage(request, file):
@@ -13,3 +14,6 @@ def coverage(request, file):
         return response
     else:
         return HttpResponseNotFound()
+
+def cov_redirect(request):
+    return redirect("/coverage/index.html", permanent=True)
