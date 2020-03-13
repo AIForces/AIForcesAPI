@@ -1,8 +1,9 @@
-from django.urls import re_path
+from django.urls import re_path, path
 
 from . import views
 
+app_name = "coverage"
 urlpatterns = [
-    re_path('^/(?P<file>[\w.\-_]+)$', views.coverage, name="coverage_file_viewer"),
-    re_path('^[/]?$'                , views.cov_redirect, name="coverage_redirect")
+    path('<str:file>', views.coverage, name="file-viewer"),
+    path('', views.cov_redirect, name="redirect")
 ]

@@ -25,5 +25,5 @@ urlpatterns = [
 
 if settings.DEBUG:
     urlpatterns += [
-        path('coverage', include('coverage_viewer.urls'))
+        path('coverage/', include('coverage_viewer.urls'))
     ]

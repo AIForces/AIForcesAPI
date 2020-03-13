@@ -8,5 +8,6 @@ omit =
   *wsgi/*,
   *wsgi.py,
   *asgi.py,
-  manage.py
+  manage.py,
+  conftest.py
   

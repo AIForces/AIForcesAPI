@@ -2,6 +2,7 @@ from django.http.response import HttpResponse, HttpResponseNotFound
 from django.core.files.storage import FileSystemStorage
 from django.conf import settings
 from django.shortcuts import redirect
+from django.urls import reverse_lazy
 import mimetypes
 
 def coverage(request, file):
@@ -16,4 +17,4 @@ def coverage(request, file):
         return HttpResponseNotFound()
 
 def cov_redirect(request):
-    return redirect("/coverage/index.html", permanent=True)
+    return redirect(reverse_lazy("coverage:file-viewer", args=["index.html"]), permanent=True)
